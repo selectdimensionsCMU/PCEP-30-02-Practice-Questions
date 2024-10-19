@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Practice Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        #question {
+            margin-bottom: 20px;
+        }
+
+        .option,
+        .menu-item {
+            margin-bottom: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .option:hover,
+        .menu-item:hover {
+            background-color: #45a049;
+        }
+
+        #submit,
+        #next,
+        #back-to-menu,
+        #return-to-menu {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #return-to-menu {
+            background-color: #f44336;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #progress,
+        #timer {
+            margin-top: 20px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #menu,
+        #quiz {
+            display: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 5px;
+        }
+
+        .modal-buttons {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .modal-button {
+            margin-left: 10px;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .menu-item {
+            margin-bottom: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: left;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .menu-item:hover {
+            background-color: #45a049;
+        }
+
+        .menu-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .menu-item-description {
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+
+        .option.correct {
+            background-color: #4CAF50;
+        }
+
+        .option.incorrect {
+            background-color: #f44336;
+        }
+
+        #explanation {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Python Practice Test</h1>
+        <div id="menu">
+            <h2>Select a section to study:</h2>
+            <div id="menu-items"></div>
+        </div>
+        <div id="quiz">
+            <div id="timer"></div>
+            <div id="question"></div>
+            <div id="code"></div>
+            <div id="options"></div>
+            <button id="submit">Submit</button>
+            <button id="next" style="display:none;">Next Question</button>
+            <button id="back-to-menu" style="display:none;">Back to Menu</button>
+            <button id="return-to-menu">Return to Main Menu</button>
+            <div id="result"></div>
+            <div id="explanation" style="display:none;"></div>
+            <div id="progress"></div>
+        </div>
+    </div>
+
+    <div id="warningModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to return to the main menu? Your progress in this section will be lost.</p>
+            <div class="modal-buttons">
+                <button id="resumeButton" class="modal-button">Resume Practice Test</button>
+                <button id="confirmReturnButton" class="modal-button">Return to Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuElement = document.getElementById('menu');
+        const menuItemsElement = document.getElementById('menu-items');
+        const quizElement = document.getElementById('quiz');
+        const questionElement = document.getElementById('question');
+        const codeElement = document.getElementById('code');
+        const optionsElement = document.getElementById('options');
+        const submitButton = document.getElementById('submit');
+        const nextButton = document.getElementById('next');
+        const backToMenuButton = document.getElementById('back-to-menu');
+        const returnToMenuButton = document.getElementById('return-to-menu');
+        const resultElement = document.getElementById('result');
+        const progressElement = document.getElementById('progress');
+        const timerElement = document.getElementById('timer');
+        const warningModal = document.getElementById('warningModal');
+        const resumeButton = document.getElementById('resumeButton');
+        const confirmReturnButton = document.getElementById('confirmReturnButton');
+
+        let currentQuestionIndex = 0;
+        let currentFileIndex = 0;
+        let questions = [];
+        let userScore = 0;
+        let timerInterval;
+        let timeLeft;
+
+        const files = [
+            'PCEP-30-02 1.1 fundamental terms an.txt',
+            'PCEP-30-02 1.2 Python\'s logic and s.txt',
+            'PCEP-30-02 1.3 literals, variables,.txt',
+            'PCEP-30-02 1.4 operators and data t.txt',
+            'PCEP-30-02 1.5 InputOutput console.txt',
+            'PCEP-30-02 2.1 decision-making and.txt',
+            'PCEP-30-02 2.2 iterations in Python.txt',
+            'PCEP-30-02 3.1 collecting and proce.txt',
+            'PCEP-30-02 3.2 tuple indexing, slic.txt',
+            'PCEP-30-02 3.3 working with diction.txt',
+            'PCEP-30-02 3.4 working with strings.txt',
+            'PCEP-30-02 4.1 working with functio.txt',
+            'PCEP-30-02 4.2 section, covering pa.txt',
+            'PCEP-30-02 4.3 Python\'s Built-In Ex.txt',
+            'PCEP-30-02 4.4 - Basics of Python E.txt'
+        ];
+
+        async function loadQuestions(content) {
+            const lines = content.split('\n');
+            const questions = [];
+            let currentQuestion = null;
+            let answerSection = false;
+            let inCodeBlock = false;
+
+            for (const line of lines) {
+                const trimmedLine = line.trim();
+                if (trimmedLine) {
+                    if (!answerSection) {
+                        if (/^\d+\./.test(trimmedLine)) {
+                            if (currentQuestion) {
+                                questions.push(currentQuestion);
+                            }
+                            currentQuestion = { question: trimmedLine, options: [], code: '', explanation: '' };
+                        } else if (trimmedLine.startsWith('```')) {
+                            inCodeBlock = !inCodeBlock;
+                        } else if (inCodeBlock) {
+                            currentQuestion.code += trimmedLine + '\n';
+                        } else if (/^[A-D]:/.test(trimmedLine)) {
+                            currentQuestion.options.push(trimmedLine);
+                        } else if (trimmedLine.startsWith('Answers:')) {
+                            answerSection = true;
+                        } else if (trimmedLine.startsWith('Explanation:')) {
+                            currentQuestion.explanation = trimmedLine.substring('Explanation:'.length).trim();
+                        }
+                    } else {
+                        // Process answers
+                        const answers = trimmedLine.split(',').map(a => a.trim());
+                        answers.forEach(answer => {
+                            const [num, ans] = answer.split('.');
+                            if (num && ans) {
+                                const index = parseInt(num.trim()) - 1;
+                                if (questions[index]) {
+                                    questions[index].correct = ans.trim();
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+
+            if (currentQuestion) {
+                questions.push(currentQuestion);
+            }
+
+            return questions;
+        }
+
+        function displayQuestion() {
+            if (!questions || questions.length === 0 || currentQuestionIndex >= questions.length) {
+                console.error('No questions available or invalid question index');
+                alert('An error occurred while displaying the question. Returning to menu.');
+                showMenu();
+                return;
+            }
+        
+            const question = questions[currentQuestionIndex];
+            questionElement.textContent = question.question;
+        
+            // Handle code display
+            if (question.code) {
+                codeElement.innerHTML = `<pre><code>${question.code}</code></pre>`;
+                codeElement.style.display = 'block';
+            } else {
+                codeElement.innerHTML = '';
+                codeElement.style.display = 'none';
+            }
+        
+            // Display options
+            optionsElement.innerHTML = '';
+            (question.options || question.choices).forEach((option, index) => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.classList.add('option');
+                button.addEventListener('click', () => selectOption(index));
+                optionsElement.appendChild(button);
+            });
+        
+            // Update UI elements
+            submitButton.style.display = 'inline-block';
+            nextButton.style.display = 'none';
+            backToMenuButton.style.display = 'none';
+            resultElement.textContent = '';
+            document.getElementById('explanation').style.display = 'none';
+        
+            updateProgress();
+        }
+
+        function submitAnswer() {
+            const selectedOption = optionsElement.querySelector('.option[style*="background-color"]');
+            if (!selectedOption) {
+                alert('Please select an answer');
+                return;
+            }
+        
+            const userAnswer = selectedOption.textContent.split(':')[0].trim();
+            const correctAnswer = questions[currentQuestionIndex].correctAnswer;
+            const isCorrect = userAnswer === correctAnswer;
+        
+            if (isCorrect) {
+                userScore++;
+                selectedOption.classList.add('correct');
+            } else {
+                selectedOption.classList.add('incorrect');
+                const correctOptionIndex = ['A', 'B', 'C', 'D'].indexOf(correctAnswer);
+                if (correctOptionIndex !== -1) {
+                    optionsElement.querySelector(`.option:nth-child(${correctOptionIndex + 1})`).classList.add('correct');
+                }
+            }
+        
+            // Disable all options after submission
+            optionsElement.querySelectorAll('.option').forEach(option => {
+                option.disabled = true;
+            });
+        
+            submitButton.style.display = 'none';
+            nextButton.style.display = 'inline-block';
+            backToMenuButton.style.display = 'inline-block';
+        
+            // Show explanation if available
+            const explanationElement = document.getElementById('explanation');
+            if (questions[currentQuestionIndex].explanation) {
+                explanationElement.textContent = questions[currentQuestionIndex].explanation;
+                explanationElement.style.display = 'block';
+            } else {
+                explanationElement.style.display = 'none';
+            }
+        
+            updateProgress();
+        }
+
+        function selectOption(index) {
+            optionsElement.querySelectorAll('.option').forEach((option, i) => {
+                if (i === index) {
+                    option.style.backgroundColor = '#e0e0e0';
+                } else {
+                    option.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex >= questions.length) {
+                finishQuiz();
+            } else {
+                displayQuestion();
+            }
+        }
+
+        function updateProgress() {
+            const totalQuestions = questions.length;
+            progressElement.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions} | Score: ${userScore}`;
+        }
+
+        function saveResults(sectionIndex, score, totalQuestions) {
+            const result = {
+                section: sectionIndex,
+                score: score,
+                total: totalQuestions,
+                timestamp: new Date().toISOString()
+            };
+
+            return fetch('/save-results', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(result),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Result saved:', data);
+                    return data;
+                })
+                .catch((error) => {
+                    console.error('Error saving result:', error);
+                    throw error;
+                });
+        }
+
+        function finishQuiz() {
+            questionElement.textContent = 'Quiz completed!';
+            codeElement.innerHTML = '';
+            optionsElement.innerHTML = '';
+            resultElement.textContent = `Final Score: ${userScore} out of ${questions.length}`;
+            nextButton.style.display = 'none';
+            backToMenuButton.style.display = 'inline-block';
+            returnToMenuButton.style.display = 'none';
+            progressElement.textContent = '';
+            clearInterval(timerInterval);
+
+            // Save results
+            saveResults(currentFileIndex, userScore, questions.length);
+        }
+
+        function getResults() {
+            return fetch('/get-results')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .catch(error => {
+                    console.error('Error fetching results:', error);
+                    return [];
+                });
+        }
+
+        async function showMenu() {
+            menuElement.style.display = 'block';
+            quizElement.style.display = 'none';
+            menuItemsElement.innerHTML = '';
+
+            try {
+                const [descriptions, results] = await Promise.all([
+                    Promise.all(files.map(async (file, index) => {
+                        const response = await fetch(file);
+                        const content = await response.text();
+                        const firstLine = content.split('\n')[0].trim();
+                        return { index, description: firstLine };
+                    })),
+                    getResults()
+                ]);
+
+                descriptions.forEach(({ index, description }) => {
+                    const button = document.createElement('button');
+                    button.classList.add('menu-item');
+
+                    const sectionResult = results
+                        .filter(r => r.section === index)
+                        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+
+                    let resultText = '';
+                    if (sectionResult) {
+                        resultText = `Last score: ${sectionResult.score}/${sectionResult.total}`;
+                    }
+
+                    button.innerHTML = `
+                        <div class="menu-item-title">Section ${index + 1}</div>
+                        <div class="menu-item-description">${description}</div>
+                        <div class="menu-item-result">${resultText}</div>
+                    `;
+                    button.addEventListener('click', () => startQuiz(index));
+                    menuItemsElement.appendChild(button);
+                });
+            } catch (error) {
+                console.error('Error loading menu:', error);
+                menuItemsElement.innerHTML = '<p>Error loading menu. Please try again later.</p>';
+            }
+        }
+
+        async function loadFile(fileIndex) {
+            try {
+                const response = await fetch(files[fileIndex]);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const content = await response.text();
+                console.log('File content:', content); // Debug log
+        
+                const lines = content.split('\n').filter(line => line.trim() !== '');
+                console.log('Filtered lines:', lines); // Debug log
+        
+                if (lines.length === 0) {
+                    throw new Error('File is empty or contains only whitespace');
+                }
+        
+                // Extract the description (first line)
+                const description = lines[0].trim();
+        
+                // Parse questions
+                const questions = [];
+                let currentQuestion = null;
+        
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (line.match(/^\d+\./)) {
+                        // This is a new question
+                        if (currentQuestion) {
+                            questions.push(currentQuestion);
+                        }
+                        currentQuestion = {
+                            question: line,
+                            choices: [],
+                            correctAnswer: ''
+                        };
+                    } else if (line.match(/^[A-D]:/)) {
+                        // This is an answer choice
+                        currentQuestion.choices.push(line);
+                    } else if (line.startsWith('Answers:')) {
+                        // This is the answer key
+                        const answers = line.split(':')[1].trim().split(', ');
+                        for (let j = 0; j < answers.length; j++) {
+                            questions[j].correctAnswer = answers[j];
+                        }
+                        break;
+                    }
+                }
+        
+                if (currentQuestion) {
+                    questions.push(currentQuestion);
+                }
+        
+                console.log('Parsed questions:', questions); // Debug log
+        
+                return questions;
+            } catch (error) {
+                console.error('Error loading file:', error);
+                return [];
+            }
+        }
+
+        function startQuiz(fileIndex) {
+            currentFileIndex = fileIndex;
+            currentQuestionIndex = 0;
+            userScore = 0;
+            loadFile(fileIndex).then(loadedQuestions => {
+                questions = loadedQuestions;
+                if (questions.length === 0) {
+                    alert('No questions were loaded. Please try again.');
+                    showMenu();
+                } else {
+                    menuElement.style.display = 'none';
+                    quizElement.style.display = 'block';
+                    displayQuestion();
+                    startTimer();
+                }
+            });
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timeLeft = 15 * 60; // 15 minutes in seconds
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    finishQuiz();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `Time remaining: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function showWarningModal() {
+            warningModal.style.display = 'block';
+        }
+
+        function hideWarningModal() {
+            warningModal.style.display = 'none';
+        }
+
+        submitButton.addEventListener('click', submitAnswer);
+        nextButton.addEventListener('click', nextQuestion);
+        backToMenuButton.addEventListener('click', showMenu);
+        returnToMenuButton.addEventListener('click', showWarningModal);
+        resumeButton.addEventListener('click', hideWarningModal);
+        confirmReturnButton.addEventListener('click', () => {
+            hideWarningModal();
+            clearInterval(timerInterval);
+            showMenu();
+        });
+
+        // Start by showing the menu
+        showMenu();
+    </script>
+</body>
+
+</html>

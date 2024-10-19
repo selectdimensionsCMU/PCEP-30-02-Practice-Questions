@@ -1,0 +1,154 @@
+PCEP-30-02 1.4 operators and data types:
+
+1. What is the result of 5 ** 2?
+   A: 25
+   B: 10
+   C: 7
+   D: 52
+
+2. Which operator is used for floor division in Python?
+   A: /
+   B: //
+   C: %
+   D: **
+
+3. What is the output of "Python" * 2?
+   A: PythonPython
+   B: Python2
+   C: Error
+   D: Python * 2
+
+4. Which of the following is a valid shortcut operator in Python?
+   A: x =+ 5
+   B: x += 5
+   C: x =+ = 5
+   D: x + = 5
+
+5. What is the result of 10 % 3?
+   A: 3
+   B: 1
+   C: 0
+   D: 3.33
+
+6. Which operator has higher precedence?
+   A: +
+   B: *
+   C: //
+   D: %
+
+7. What is the output of 5 & 3?
+   A: 8
+   B: 1
+   C: 2
+   D: 15
+
+8. Which of the following is the correct way to perform a bitwise left shift?
+   A: 5 << 1
+   B: 5 >> 1
+   C: 5 < 1
+   D: 5 > 1
+
+9. What is the result of not True and False?
+   A: True
+   B: False
+   C: None
+   D: Error
+
+10. Which of the following is NOT a relational operator in Python?
+    A: ==
+    B: !=
+    C: <>
+    D: >=
+
+11. What is the output of 0.1 + 0.2 == 0.3?
+    A: True
+    B: False
+    C: Error
+    D: None
+
+12. How do you convert an integer to a float in Python?
+    A: int(x)
+    B: float(x)
+    C: str(x)
+    D: complex(x)
+
+13. What is the result of 5 ^ 3?
+    A: 6
+    B: 8
+    C: 2
+    D: 15
+
+14. Which operator is used for string concatenation?
+    A: &
+    B: +
+    C: *
+    D: ,
+
+15. What is the output of 10 // 3?
+    A: 3
+    B: 3.33
+    C: 3.0
+    D: 4
+
+16. Which of the following has the highest precedence?
+    A: ()
+    B: **
+    C: *
+    D: +
+
+17. What is the result of True or False and not True?
+    A: True
+    B: False
+    C: None
+    D: Error
+
+18. Which bitwise operator inverts all the bits?
+    A: ~
+    B: ^
+    C: |
+    D: &
+
+19. What is the output of 5 > 3 > 1?
+    A: True
+    B: False
+    C: Error
+    D: None
+
+20. How do you perform integer division in Python 3?
+    A: /
+    B: //
+    C: %
+    D: int()
+
+21. What is the result of 2 << 2?
+    A: 4
+    B: 8
+    C: 16
+    D: 1
+
+22. Which of the following is NOT a valid assignment operator in Python?
+    A: +=
+    B: -=
+    C: *=
+    D: =+
+
+23. What is the output of 3 * "2" + "4"?
+    A: 10
+    B: 224
+    C: 222
+    D: Error
+
+24. What is the result of 7 | 2?
+    A: 5
+    B: 7
+    C: 2
+    D: 9
+
+25. How do you convert a float to an integer in Python?
+    A: int(x)
+    B: floor(x)
+    C: round(x)
+    D: ceil(x)
+
+Answers:
+1. A, 2. B, 3. A, 4. B, 5. B, 6. B, 7. B, 8. A, 9. B, 10. C, 11. B, 12. B, 13. A, 14. B, 15. A, 16. A, 17. A, 18. A, 19. A, 20. B, 21. B, 22. D, 23. B, 24. B, 25. A

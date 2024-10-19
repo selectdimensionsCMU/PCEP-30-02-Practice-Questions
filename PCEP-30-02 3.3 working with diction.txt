@@ -1,0 +1,201 @@
+PCEP-30-02 3.3 working with dictionaries in Python, including building, indexing, adding and removing keys, iterating through dictionaries, checking the existence of keys, and using methods like keys(), items(), and values():
+
+1. How do you create an empty dictionary in Python?
+   A) dict = {}
+   B) dict = []
+   C) dict = ()
+   D) dict = dict()
+
+2. What is the output of the following code?
+   ```python
+   d = {'a': 1, 'b': 2, 'c': 3}
+   print(d['b'])
+   ```
+   A) 1
+   B) 2
+   C) 3
+   D) KeyError
+
+3. Which method is used to add a new key-value pair to a dictionary?
+   A) d.add(key, value)
+   B) d.insert(key, value)
+   C) d[key] = value
+   D) d.append(key, value)
+
+4. How do you remove a key-value pair from a dictionary?
+   A) del d[key]
+   B) d.remove(key)
+   C) d.pop(key)
+   D) Both A and C
+
+5. What is the output of this code?
+   ```python
+   d = {'a': 1, 'b': 2, 'c': 3}
+   print(list(d.keys()))
+   ```
+   A) [1, 2, 3]
+   B) ['a', 'b', 'c']
+   C) [('a', 1), ('b', 2), ('c', 3)]
+   D) Error
+
+6. How do you check if a key exists in a dictionary?
+   A) if key in d:
+   B) if d.haskey(key):
+   C) if key exists in d:
+   D) if d.contains(key):
+
+7. What method returns a list of all values in a dictionary?
+   A) d.values()
+   B) d.getvalues()
+   C) d.allvalues()
+   D) values(d)
+
+8. What is the output of this code?
+   ```python
+   d = {'a': 1, 'b': 2, 'c': 3}
+   for k, v in d.items():
+       print(k, v)
+   ```
+   A) a 1
+      b 2
+      c 3
+   B) ('a', 1)
+      ('b', 2)
+      ('c', 3)
+   C) Error
+   D) None of the above
+
+9. Which method returns both keys and values as tuples?
+   A) d.keyvalues()
+   B) d.pairs()
+   C) d.items()
+   D) d.elements()
+
+10. What happens when you try to access a key that doesn't exist in a dictionary?
+    A) Returns None
+    B) Raises a KeyError
+    C) Returns False
+    D) Raises a ValueError
+
+11. How can you get the value of a key, returning a default value if the key doesn't exist?
+    A) d.get(key, default_value)
+    B) d.fetch(key, default_value)
+    C) d.retrieve(key, default_value)
+    D) d[key] if key in d else default_value
+
+12. What is the output of this code?
+    ```python
+    d = {'a': 1, 'b': 2, 'c': 3}
+    d.update({'b': 4, 'd': 5})
+    print(d)
+    ```
+    A) {'a': 1, 'b': 2, 'c': 3, 'd': 5}
+    B) {'a': 1, 'b': 4, 'c': 3, 'd': 5}
+    C) {'a': 1, 'b': 2, 'c': 3, 'b': 4, 'd': 5}
+    D) Error
+
+13. How do you create a dictionary with default values?
+    A) dict.fromkeys(['a', 'b', 'c'], 0)
+    B) {'a', 'b', 'c'} = 0
+    C) dict.create(['a', 'b', 'c'], 0)
+    D) dict(['a', 'b', 'c'], 0)
+
+14. What is the output of this code?
+    ```python
+    d = {'a': 1, 'b': 2, 'c': 3}
+    print(len(d))
+    ```
+    A) 3
+    B) 6
+    C) ['a', 'b', 'c']
+    D) [1, 2, 3]
+
+15. Which of the following is TRUE about dictionary keys?
+    A) Keys must be immutable
+    B) Keys can be of any type
+    C) Keys can be duplicated
+    D) Keys are always strings
+
+16. How can you merge two dictionaries in Python 3.9+?
+    A) dict1 + dict2
+    B) dict1.merge(dict2)
+    C) dict1 | dict2
+    D) dict1.update(dict2)
+
+17. What is the output of this code?
+    ```python
+    d = {'a': 1, 'b': 2, 'c': 3}
+    print(d.pop('b'))
+    print(d)
+    ```
+    A) 2
+       {'a': 1, 'c': 3}
+    B) {'a': 1, 'c': 3}
+       2
+    C) None
+       {'a': 1, 'c': 3}
+    D) KeyError
+
+18. How can you create a dictionary from two lists?
+    A) dict(zip(keys, values))
+    B) dict.fromkeys(keys, values)
+    C) dict.create(keys, values)
+    D) {k: v for k, v in keys, values}
+
+19. What method removes and returns an arbitrary key-value pair as a tuple?
+    A) d.remove()
+    B) d.pop()
+    C) d.popitem()
+    D) d.takeout()
+
+20. What is the output of this code?
+    ```python
+    d = {'a': 1, 'b': 2, 'c': 3}
+    print(sorted(d))
+    ```
+    A) [1, 2, 3]
+    B) ['a', 'b', 'c']
+    C) [('a', 1), ('b', 2), ('c', 3)]
+    D) {'a': 1, 'b': 2, 'c': 3}
+
+21. How can you create a dictionary with keys from a list and all values set to 0?
+    A) dict.fromkeys(list, 0)
+    B) {k: 0 for k in list}
+    C) dict(zip(list, [0]*len(list)))
+    D) All of the above
+
+22. What is the output of this code?
+    ```python
+    d = {'a': 1, 'b': 2, 'c': 3}
+    print('b' in d)
+    print(2 in d)
+    ```
+    A) True
+       True
+    B) True
+       False
+    C) False
+       True
+    D) False
+       False
+
+23. How can you get a list of tuples (key, value) from a dictionary?
+    A) list(d)
+    B) list(d.keys())
+    C) list(d.values())
+    D) list(d.items())
+
+24. What happens when you try to modify a frozen dictionary?
+    A) The dictionary is updated
+    B) A new dictionary is created
+    C) A TypeError is raised
+    D) Nothing happens
+
+25. How can you create a dictionary with keys from a list and values as the index of each key in the list?
+    A) {k: i for i, k in enumerate(list)}
+    B) dict.fromkeys(list, range(len(list)))
+    C) dict(zip(list, range(len(list))))
+    D) Both A and C
+
+Answers:
+1. A, 2. B, 3. C, 4. D, 5. B, 6. A, 7. A, 8. A, 9. C, 10. B, 11. A, 12. B, 13. A, 14. A, 15. A, 16. C, 17. A, 18. A, 19. C, 20. B, 21. D, 22. B, 23. D, 24. C, 25. D

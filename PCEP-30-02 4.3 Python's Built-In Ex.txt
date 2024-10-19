@@ -1,0 +1,154 @@
+PCEP-30-02 4.3 Python's Built-In Exceptions Hierarchy:
+
+1. Which of the following is the base class for all built-in exceptions in Python?
+   A) Exception
+   B) BaseException
+   C) StandardError
+   D) Error
+
+2. What is the correct order of inheritance for the KeyError exception?
+   A) BaseException -> Exception -> LookupError -> KeyError
+   B) Exception -> BaseException -> LookupError -> KeyError
+   C) BaseException -> LookupError -> Exception -> KeyError
+   D) LookupError -> Exception -> BaseException -> KeyError
+
+3. Which exception is raised when trying to access a list index that doesn't exist?
+   A) KeyError
+   B) IndexError
+   C) ValueError
+   D) TypeError
+
+4. What exception is raised when a user interrupts the program execution (usually by pressing Ctrl+C)?
+   A) InterruptedError
+   B) SystemExit
+   C) KeyboardInterrupt
+   D) UserInterrupt
+
+5. Which of the following is NOT a subclass of ArithmeticError?
+   A) ZeroDivisionError
+   B) OverflowError
+   C) FloatingPointError
+   D) ValueError
+
+6. What exception is raised when a function receives an argument of the wrong type?
+   A) ArgumentError
+   B) ValueError
+   C) TypeError
+   D) InputError
+
+7. Which exception is used to exit the Python interpreter?
+   A) SystemExit
+   B) ExitError
+   C) QuitException
+   D) TerminateError
+
+8. What is the parent class of both IndexError and KeyError?
+   A) ValueError
+   B) LookupError
+   C) ArithmeticError
+   D) RuntimeError
+
+9. Which exception is raised when a variable is referenced before it has been assigned a value?
+   A) ReferenceError
+   B) NameError
+   C) ValueError
+   D) UnboundLocalError
+
+10. What exception is raised when an operation or function is applied to an object of inappropriate type?
+    A) TypeError
+    B) ValueError
+    C) AttributeError
+    D) OperationError
+
+11. Which of the following is an abstract exception?
+    A) Exception
+    B) ArithmeticError
+    C) LookupError
+    D) All of the above
+
+12. What exception is raised when a key is not found in a dictionary?
+    A) IndexError
+    B) KeyError
+    C) LookupError
+    D) ValueError
+
+13. Which exception is raised when an error occurs that doesn't fall into any specific category?
+    A) GenericError
+    B) StandardError
+    C) Exception
+    D) BaseException
+
+14. What is the parent class of ArithmeticError?
+    A) LookupError
+    B) ValueError
+    C) Exception
+    D) StandardError
+
+15. Which exception is raised when an operation or function receives an argument that has the right type but an inappropriate value?
+    A) TypeError
+    B) ValueError
+    C) ArgumentError
+    D) InputError
+
+16. What is the relationship between Exception and BaseException?
+    A) Exception is a subclass of BaseException
+    B) BaseException is a subclass of Exception
+    C) They are sibling classes
+    D) They are not related
+
+17. Which of the following is NOT a direct subclass of Exception?
+    A) ArithmeticError
+    B) LookupError
+    C) KeyboardInterrupt
+    D) ValueError
+
+18. What exception is raised when trying to perform an operation on a closed file?
+    A) IOError
+    B) FileError
+    C) ValueError
+    D) OSError
+
+19. Which exception is raised when a function or method is called with the wrong number of arguments?
+    A) ArgumentError
+    B) TypeError
+    C) ValueError
+    D) SyntaxError
+
+20. What is the parent class of ZeroDivisionError?
+    A) ValueError
+    B) LookupError
+    C) ArithmeticError
+    D) MathError
+
+21. Which exception is raised when an import statement fails to find the module definition?
+    A) ImportError
+    B) ModuleNotFoundError
+    C) FileNotFoundError
+    D) LookupError
+
+22. What exception is raised when a sequence subscript is out of range?
+    A) KeyError
+    B) IndexError
+    C) RangeError
+    D) SequenceError
+
+23. Which of the following is true about SystemExit?
+    A) It's a subclass of BaseException but not Exception
+    B) It's used to request termination of the interpreter
+    C) It's not meant to be caught by except Exception as e
+    D) All of the above
+
+24. What exception is raised when a local or global name is not found?
+    A) ReferenceError
+    B) NameError
+    C) LookupError
+    D) AttributeError
+
+25. Which exception is raised when an operation runs out of memory?
+    A) OutOfMemoryError
+    B) MemoryError
+    C) ResourceError
+    D) AllocationError
+
+Answers:
+1. B, 2. A, 3. B, 4. C, 5. D, 6. C, 7. A, 8. B, 9. B, 10. A, 11. D, 12. B, 13. C, 14. C, 15. B, 16. A, 17. C, 18. C, 19. B, 20. C, 21. B, 22. B, 23. D, 24. B, 25. B

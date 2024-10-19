@@ -1,0 +1,188 @@
+PCEP-30-02 3.1 collecting and processing data using lists in Python:
+
+1. What is the correct way to create an empty list in Python?
+   A) list = []
+   B) list = list()
+   C) list = {}
+   D) Both A and B
+
+2. How do you access the third element of a list named 'my_list'?
+   A) my_list[3]
+   B) my_list[2]
+   C) my_list(3)
+   D) my_list.get(3)
+
+3. What is the output of the following code?
+   ```python
+   numbers = [1, 2, 3, 4, 5]
+   print(numbers[1:4])
+   ```
+   A) [1, 2, 3]
+   B) [2, 3, 4]
+   C) [2, 3, 4, 5]
+   D) [1, 2, 3, 4]
+
+4. Which method is used to add an element to the end of a list?
+   A) add()
+   B) insert()
+   C) append()
+   D) extend()
+
+5. What does the len() function return when applied to a list?
+   A) The memory size of the list
+   B) The number of elements in the list
+   C) The largest element in the list
+   D) The sum of all elements in the list
+
+6. How can you remove the element at index 2 from a list named 'my_list'?
+   A) my_list.remove(2)
+   B) my_list.pop(2)
+   C) del my_list[2]
+   D) Both B and C
+
+7. What is the output of this code?
+   ```python
+   numbers = [1, 2, 3, 4, 5]
+   print(numbers[-2:])
+   ```
+   A) [4, 5]
+   B) [5]
+   C) [1, 2, 3]
+   D) Error
+
+8. Which function can be used to sort a list in ascending order?
+   A) sort()
+   B) sorted()
+   C) order()
+   D) Both A and B
+
+9. How do you check if an element exists in a list?
+   A) if element in list:
+   B) if list.contains(element):
+   C) if list.has(element):
+   D) if element.exists(list):
+
+10. What is the result of this list comprehension?
+    ```python
+    [x**2 for x in range(5)]
+    ```
+    A) [0, 1, 4, 9, 16]
+    B) [1, 4, 9, 16, 25]
+    C) [0, 2, 4, 6, 8]
+    D) [1, 2, 3, 4, 5]
+
+11. How do you create a shallow copy of a list?
+    A) new_list = list.copy()
+    B) new_list = list[:]
+    C) new_list = list(list)
+    D) All of the above
+
+12. What is the correct way to create a 3x3 matrix using lists?
+    A) matrix = [[0]*3]*3
+    B) matrix = [[0,0,0],[0,0,0],[0,0,0]]
+    C) matrix = [0,0,0,0,0,0,0,0,0]
+    D) Both A and B
+
+13. Which method is used to find the index of an element in a list?
+    A) find()
+    B) search()
+    C) index()
+    D) locate()
+
+14. What happens when you use the '+' operator with two lists?
+    A) It adds the elements of both lists
+    B) It concatenates the two lists
+    C) It raises an error
+    D) It creates a nested list
+
+15. How can you reverse a list in-place?
+    A) list.reverse()
+    B) reversed(list)
+    C) list[::-1]
+    D) list.sort(reverse=True)
+
+16. What is the output of this code?
+    ```python
+    list1 = [1, 2, 3]
+    list2 = list1
+    list1.append(4)
+    print(list2)
+    ```
+    A) [1, 2, 3]
+    B) [1, 2, 3, 4]
+    C) [4]
+    D) Error
+
+17. Which of the following is NOT a valid list method?
+    A) append()
+    B) extend()
+    C) insert()
+    D) add()
+
+18. How do you remove all occurrences of an element from a list?
+    A) list.remove(element)
+    B) list.removeall(element)
+    C) while element in list: list.remove(element)
+    D) del list[element]
+
+19. What is the result of this operation?
+    ```python
+    [1, 2, 3] * 2
+    ```
+    A) [2, 4, 6]
+    B) [1, 2, 3, 1, 2, 3]
+    C) [1, 1, 2, 2, 3, 3]
+    D) Error
+
+20. How can you get the last element of a list without knowing its length?
+    A) list[-1]
+    B) list[len(list)]
+    C) list.last()
+    D) list.end()
+
+21. What does the following code do?
+    ```python
+    new_list = [x for x in range(10) if x % 2 == 0]
+    ```
+    A) Creates a list of odd numbers from 0 to 9
+    B) Creates a list of even numbers from 0 to 9
+    C) Creates a list of all numbers from 0 to 9
+    D) Raises an error
+
+22. How can you concatenate two lists 'list1' and 'list2'?
+    A) list1.add(list2)
+    B) list1.extend(list2)
+    C) list1 + list2
+    D) Both B and C
+
+23. What is the output of this code?
+    ```python
+    list = [1, 2, 3, 4, 5]
+    print(list[::2])
+    ```
+    A) [1, 3, 5]
+    B) [2, 4]
+    C) [1, 2, 3]
+    D) [3, 4, 5]
+
+24. Which of the following will create a list of tuples containing indices and values of a list?
+    A) zip(list)
+    B) enumerate(list)
+    C) index(list)
+    D) tuple(list)
+
+25. What is the result of this operation?
+    ```python
+    [1, 2, 3] == [1, 2, 3]
+    ```
+    A) True
+    B) False
+    C) Error
+    D) None
+
+Answers:
+1. D, 2. B, 3. B, 4. C, 5. B, 6. D, 7. A, 8. D, 9. A, 10. A,
+11. D, 12. D, 13. C, 14. B, 15. A, 16. B, 17. D, 18. C, 19. B, 20. A,
+21. B, 22. D, 23. A, 24. B, 25. A
+
+These questions cover various aspects of working with lists in Python, including constructing vectors, indexing and slicing, list methods, functions, the del instruction, iterating through lists, list comprehensions, copying and cloning, and working with matrices. They should provide good practice for the PCEP-30-02 3.1 section.

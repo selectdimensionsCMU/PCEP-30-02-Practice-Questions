@@ -1,0 +1,180 @@
+PCEP-30-02 4.4 - Basics of Python Exception Handling:
+
+1. What is the purpose of a try-except block in Python?
+   A) To define a function
+   B) To create a loop
+   C) To handle exceptions
+   D) To import modules
+
+2. Which keyword is used to specify the code that might raise an exception?
+   A) catch
+   B) try
+   C) except
+   D) finally
+
+3. What happens if an exception occurs in a try block and there's no matching except block?
+   A) The program continues execution
+   B) The exception is ignored
+   C) The program terminates with an error
+   D) The exception is automatically handled
+
+4. Which of the following is the correct syntax for a basic try-except block?
+   A) try { } except { }
+   B) try: ... except:
+   C) try ... catch ...
+   D) try() except()
+
+5. What does the following code print if x is not defined?
+   ```python
+   try:
+       print(x)
+   except NameError:
+       print("Variable x is not defined")
+   ```
+   A) Nothing
+   B) Variable x is not defined
+   C) NameError
+   D) None of the above
+
+6. How can you catch multiple exception types in a single except clause?
+   A) except (TypeError, ValueError):
+   B) except TypeError, ValueError:
+   C) except [TypeError, ValueError]:
+   D) except {TypeError, ValueError}:
+
+7. What is the correct order for handling exceptions?
+   A) Most specific to most general
+   B) Most general to most specific
+   C) The order doesn't matter
+   D) Alphabetical order
+
+8. Which of the following is true about the except clause without any specified exception?
+   A) It catches all exceptions
+   B) It's a syntax error
+   C) It only catches built-in exceptions
+   D) It doesn't catch any exceptions
+
+9. What does the following code print if x is 0?
+   ```python
+   try:
+       result = 10 / x
+   except ZeroDivisionError:
+       print("Cannot divide by zero")
+   else:
+       print("Result:", result)
+   ```
+   A) Result: 0
+   B) Cannot divide by zero
+   C) ZeroDivisionError
+   D) Nothing
+
+10. How can you access the details of the caught exception?
+    A) Using the as keyword in the except clause
+    B) Using the with keyword
+    C) Exceptions don't have details
+    D) Using the get_details() method
+
+11. What is the purpose of the finally clause in a try-except block?
+    A) To specify the main code to be executed
+    B) To handle specific exceptions
+    C) To execute code regardless of whether an exception occurred
+    D) To raise custom exceptions
+
+12. How do you propagate an exception to the calling function?
+    A) Use the propagate keyword
+    B) Re-raise the exception using raise
+    C) Use the pass statement
+    D) Exceptions are automatically propagated
+
+13. What happens when an exception is not handled in a function?
+    A) The program terminates
+    B) The exception is ignored
+    C) The exception propagates to the calling function
+    D) A default exception handler is called
+
+14. Which of the following is NOT a valid way to handle exceptions?
+    A) try-except
+    B) try-finally
+    C) try-catch
+    D) try-except-else
+
+15. What does the following code print?
+    ```python
+    try:
+        print(1/0)
+    except:
+        print("An error occurred")
+    ```
+    A) 1/0
+    B) ZeroDivisionError
+    C) An error occurred
+    D) Nothing
+
+16. How can you get the name of the exception that was raised?
+    A) exception.name
+    B) str(exception)
+    C) type(exception).__name__
+    D) exception.type()
+
+17. What is the purpose of the else clause in a try-except block?
+    A) To handle exceptions
+    B) To execute if no exceptions were raised
+    C) To always execute, regardless of exceptions
+    D) To raise custom exceptions
+
+18. Which statement is used to manually raise an exception?
+    A) throw
+    B) raise
+    C) except
+    D) error
+
+19. What happens if an exception is raised in the except block?
+    A) It's automatically caught
+    B) The program terminates
+    C) It propagates to the outer try-except block
+    D) It's ignored
+
+20. How can you catch all exceptions except for keyboard interrupts and system exits?
+    A) except Exception:
+    B) except BaseException:
+    C) except:
+    D) except *:
+
+21. What is the correct way to define a custom exception?
+    A) class MyException(Exception):
+    B) def MyException(Exception):
+    C) exception MyException:
+    D) create exception MyException
+
+22. Which of the following is true about exception handling in Python?
+    A) It's optional and not recommended
+    B) It's mandatory for all programs
+    C) It helps make programs more robust
+    D) It always slows down program execution
+
+23. What does the following code print if x is not defined?
+    ```python
+    try:
+        print(x)
+    except NameError as e:
+        print(type(e).__name__)
+    ```
+    A) x
+    B) NameError
+    C) Exception
+    D) None
+
+24. How can you handle an exception and still get its traceback?
+    A) Use the traceback module
+    B) Exceptions don't have tracebacks
+    C) Use the sys.exc_info() function
+    D) Both A and C
+
+25. What is the purpose of delegating responsibility for handling exceptions?
+    A) To improve code organization
+    B) To handle exceptions at the appropriate level
+    C) To simplify error handling logic
+    D) All of the above
+
+Answers:
+1. C, 2. B, 3. C, 4. B, 5. B, 6. A, 7. A, 8. A, 9. B, 10. A, 11. C, 12. B, 13. C, 14. C, 15. C, 16. C, 17. B, 18. B, 19. C, 20. A, 21. A, 22. C, 23. B, 24. D, 25. D

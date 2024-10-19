@@ -1,0 +1,161 @@
+PCEP-30-02 1.5 Input/Output console operations:
+
+1. What is the output of the following code?
+   print("Hello", "World", sep="-")
+   A: Hello-World
+   B: Hello World
+   C: HelloWorld
+   D: Hello-World-
+
+2. How do you print "Hello" and "World" on separate lines using a single print() function?
+   A: print("Hello\nWorld")
+   B: print("Hello", "World", sep="\n")
+   C: print("Hello", end="\n"); print("World")
+   D: Both A and B are correct
+
+3. What does the end parameter do in the print() function?
+   A: It adds text at the end of the printed string
+   B: It specifies what character(s) to print at the end
+   C: It terminates the program
+   D: It has no effect
+
+4. How do you take user input as an integer?
+   A: input("Enter a number: ")
+   B: int(input("Enter a number: "))
+   C: float(input("Enter a number: "))
+   D: str(input("Enter a number: "))
+
+5. What is the output of the following code?
+   print("Python", "is", "awesome", sep="**")
+   A: Python is awesome
+   B: Python**is**awesome
+   C: Python****is****awesome
+   D: Pythonisawesome
+
+6. Which of the following will print "Hello" without a newline at the end?
+   A: print("Hello", end="")
+   B: print("Hello", end="\n")
+   C: print("Hello", sep="")
+   D: print("Hello", flush=True)
+
+7. What is the result of float("3.14")?
+   A: "3.14"
+   B: 3
+   C: 3.14
+   D: Error
+
+8. How do you print the values 1, 2, and 3 separated by commas?
+   A: print(1, 2, 3)
+   B: print(1, 2, 3, sep=",")
+   C: print("1,2,3")
+   D: print("1", "2", "3", sep=",")
+
+9. What does the sep parameter do in the print() function?
+   A: It separates multiple print statements
+   B: It specifies the separator between multiple arguments
+   C: It adds a separator at the end of the printed string
+   D: It has no effect
+
+10. What is the output of the following code?
+    print("a", "b", "c", sep="", end="**")
+    print("d", "e", "f")
+    A: abc**def
+    B: a b c**d e f
+    C: abcdef
+    D: abc**
+       def
+
+11. How do you convert user input to a float?
+    A: input("Enter a number: ")
+    B: int(input("Enter a number: "))
+    C: float(input("Enter a number: "))
+    D: str(input("Enter a number: "))
+
+12. What is the output of print(1, 2, 3, sep="->", end=".")?
+    A: 1->2->3
+    B: 1->2->3.
+    C: 1 2 3.
+    D: 1,2,3.
+
+13. Which of the following will raise a ValueError?
+    A: int("42")
+    B: int("3.14")
+    C: float("3.14")
+    D: float("42")
+
+14. What is the result of int(3.99)?
+    A: 3
+    B: 4
+    C: 3.99
+    D: Error
+
+15. How do you print a backslash (\) character?
+    A: print("\")
+    B: print("\\")
+    C: print("\\\")
+    D: print("\b")
+
+16. What is the output of the following code?
+    x = input("Enter a number: ")
+    print(type(x))
+    A: <class 'int'>
+    B: <class 'float'>
+    C: <class 'str'>
+    D: Depends on user input
+
+17. How do you print multiple variables on the same line?
+    A: print(var1 + var2 + var3)
+    B: print(var1, var2, var3)
+    C: print(var1); print(var2); print(var3)
+    D: print(var1 & var2 & var3)
+
+18. What is the output of print("Python"[2:4])?
+    A: Py
+    B: th
+    C: tho
+    D: yt
+
+19. How do you print a variable's value along with some text?
+    A: print("Value: " + variable)
+    B: print("Value:", variable)
+    C: print(f"Value: {variable}")
+    D: Both B and C are correct
+
+20. What happens if you try to convert a non-numeric string to int?
+    A: It returns 0
+    B: It returns None
+    C: It raises a ValueError
+    D: It converts to ASCII value
+
+21. What is the output of print("Hello", end="", flush=True)?
+    A: Hello
+    B: Hello with no newline
+    C: Nothing (empty output)
+    D: Error
+
+22. How do you take multiple inputs on a single line?
+    A: input("Enter values: ").split()
+    B: [input() for _ in range(3)]
+    C: input(), input(), input()
+    D: All of the above
+
+23. What is the result of float("inf")?
+    A: Error
+    B: 0
+    C: A very large number
+    D: Positive infinity
+
+24. How do you print a dictionary's keys and values?
+    A: print(dict)
+    B: print(dict.items())
+    C: for k, v in dict.items(): print(k, v)
+    D: Both B and C are correct
+
+25. What is the output of print(f"{3.14159:.2f}")?
+    A: 3.14159
+    B: 3.14
+    C: 3.142
+    D: Error
+
+Answers:
+1. A, 2. D, 3. B, 4. B, 5. B, 6. A, 7. C, 8. D, 9. B, 10. A, 11. C, 12. B, 13. B, 14. A, 15. B, 16. C, 17. B, 18. B, 19. D, 20. C, 21. B, 22. A, 23. D, 24. D, 25. B

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions for Running the Python Practice Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Instructions for Running the Python Practice Questions</h1>
+
+    <h2>Step 1: Prepare Your Files</h2>
+    <p>Ensure all your files (HTML, JavaScript, and JSON files) are in the same directory. For example, they might be in a folder called "Python Practice Questions" on your desktop.</p>
+
+    <h2>Step 2: Set Up the Express.js Server</h2>
+    <p>Before running the application, you need to set up and start the Express.js server:</p>
+    <ol>
+        <li>Make sure you have Node.js installed on your computer.</li>
+        <li>Open a terminal or command prompt and navigate to your project directory.</li>
+        <li>Run the following command to install the necessary dependencies:
+            <pre><code>npm install express cors</code></pre>
+        </li>
+        <li>Create a file named <code>server.js</code> in your project directory and copy the Express.js server code into it.</li>
+    </ol>
+
+    <h2>Step 3: Start the Express.js Server</h2>
+    <p>In your terminal or command prompt, run the following command:</p>
+    <pre><code>node server.js</code></pre>
+    <p>You should see a message like "Server running at http://localhost:3000"</p>
+
+    <h2>Step 4: Open the Practice Questions in Your Web Browser</h2>
+    <p>Open your web browser and go to:</p>
+    <pre><code>http://localhost:3000/practice_test.html</code></pre>
+
+    <h2>Step 5: Using the Practice Questions</h2>
+    <p>You should now see the practice questions in your browser. Use them as needed for your study. Your results will be saved automatically.</p>
+
+    <h2>Step 6: Viewing Saved Results</h2>
+    <p>To view your saved results, go to:</p>
+    <pre><code>http://localhost:3000/results.html</code></pre>
+
+    <h2>Step 7: Stopping the Server</h2>
+    <p>When you're done:</p>
+    <ul>
+        <li>Go back to your terminal or command prompt window</li>
+        <li>Press Ctrl+C to stop the server</li>
+        <li>You can close the terminal or command prompt window</li>
+    </ul>
+
+    <h2>Modifying Questions (for Developers)</h2>
+    <p>If you need to modify the questions:</p>
+    <ol>
+        <li>Open the <code>questions.json</code> file in a text editor</li>
+        <li>Modify the questions, answers, and explanations as needed</li>
+        <li>Save the file</li>
+        <li>Restart the server for the changes to take effect</li>
+    </ol>
+
+    <h2>Note on File Paths</h2>
+    <p>The application now uses relative file paths, so as long as all files are in the same directory, you shouldn't need to modify any paths in the code.</p>
+
+    <h2>Troubleshooting</h2>
+    <p>If you encounter any issues:</p>
+    <ul>
+        <li>Make sure all files are in the same directory</li>
+        <li>Check that the server is running and you're accessing the correct URL</li>
+        <li>Check the browser's developer console for any error messages</li>
+        <li>Ensure you have the necessary permissions to read/write files in the project directory</li>
+    </ul>
+
+    <p>For the best experience, we recommend using the Express.js server method described above.</p>
+</body>
+</html>

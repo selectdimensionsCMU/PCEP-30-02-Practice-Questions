@@ -1,0 +1,154 @@
+PCEP-30-02 1.1 fundamental terms and definitions:
+
+1. What is the primary function of an interpreter in Python?
+A: To compile the entire code before execution
+B: To execute code line by line
+C: To check for syntax errors only
+D: To optimize code for faster execution
+
+2. Which of the following best describes compilation?
+A: Running code line by line
+B: Translating high-level code to machine code all at once
+C: Checking for runtime errors
+D: Interpreting code in real-time
+
+3. What does lexis refer to in programming languages?
+A: The structure of statements
+B: The meaning of statements
+C: The vocabulary of the language
+D: The rules for writing functions
+
+4. In the context of programming languages, what does syntax refer to?
+A: The meaning of statements
+B: The vocabulary of the language
+C: The rules for writing valid statements
+D: The way the program is executed
+
+5. What aspect of a programming language does semantics deal with?
+A: The spelling of keywords
+B: The structure of statements
+C: The meaning of statements
+D: The order of execution
+
+6. Which of the following is true about Python?
+A: It is only a compiled language
+B: It is only an interpreted language
+C: It can be both compiled and interpreted
+D: It is neither compiled nor interpreted
+
+7. What is the main difference between an interpreter and a compiler?
+A: Interpreters are faster than compilers
+B: Compilers produce machine code, interpreters don't
+C: Interpreters can't handle complex programs
+D: Compilers are always free, interpreters are not
+
+8. In Python, what is responsible for converting source code into bytecode?
+A: The operating system
+B: The Python interpreter
+C: The user's text editor
+D: The Python compiler
+
+9. What is the correct order of steps in Python code execution?
+A: Lexical analysis, Parsing, Execution
+B: Parsing, Lexical analysis, Execution
+C: Execution, Lexical analysis, Parsing
+D: Lexical analysis, Execution, Parsing
+
+10. What does the Python interpreter do with syntax errors?
+A: Ignores them and continues execution
+B: Fixes them automatically
+C: Reports them and stops execution
+D: Compiles them into machine code
+
+11. Which of the following is part of Python's lexical structure?
+A: if-else statements
+B: Function definitions
+C: Keywords like 'for' and 'while'
+D: Class inheritance
+
+12. What does semantic analysis in Python primarily focus on?
+A: Spelling of variables
+B: Indentation of code
+C: Meaning and logical correctness of statements
+D: Speed of code execution
+
+13. Which phase of code processing deals with identifying tokens like keywords, identifiers, and operators?
+A: Semantic analysis
+B: Lexical analysis
+C: Parsing
+D: Code generation
+
+14. What is the main advantage of interpreted languages like Python?
+A: They always run faster than compiled languages
+B: They don't need a separate compilation step
+C: They use less memory
+D: They are more secure
+
+15. In Python, what is the relationship between lexical analysis and syntax analysis?
+A: They are the same thing
+B: Lexical analysis comes after syntax analysis
+C: Lexical analysis comes before syntax analysis
+D: They are completely independent processes
+
+16. What type of errors does syntactic analysis primarily detect?
+A: Runtime errors
+B: Logical errors
+C: Structural errors in the code
+D: Memory allocation errors
+
+17. Which of the following is NOT a part of Python's semantic rules?
+A: Variable scope
+B: Type checking
+C: Code indentation
+D: Function return values
+
+18. What is the primary purpose of Python's bytecode?
+A: To make the code human-readable
+B: To optimize memory usage
+C: To provide a platform-independent representation of the program
+D: To encrypt the source code
+
+19. In the context of Python, what does PVM stand for?
+A: Python Virtual Machine
+B: Portable Variable Manager
+C: Pre-compilation Verification Module
+D: Post-execution Variable Monitor
+
+20. Which statement about Python's execution model is true?
+A: Python code is always compiled to machine code before execution
+B: Python uses a mix of interpretation and compilation (to bytecode)
+C: Python only uses pure interpretation without any compilation
+D: Python requires manual compilation by the programmer
+
+21. What role does the lexer play in Python's code processing?
+A: It executes the code
+B: It breaks the input into tokens
+C: It checks for logical errors
+D: It optimizes the code
+
+22. Which of the following is a semantic error in Python?
+A: Using a variable before declaring it
+B: Forgetting to close a parenthesis
+C: Using an undefined variable
+D: Misspelling a keyword
+
+23. What is the main difference between syntax and semantics in programming?
+A: Syntax deals with meaning, semantics with structure
+B: Syntax deals with structure, semantics with meaning
+C: They are the same thing
+D: Syntax is for compiled languages, semantics for interpreted languages
+
+24. In Python, what happens immediately after lexical analysis?
+A: Code execution
+B: Semantic analysis
+C: Syntax analysis (parsing)
+D: Bytecode generation
+
+25. Which of the following is true about Python's interpreter?
+A: It only checks for syntax errors
+B: It converts Python code directly to machine code
+C: It executes Python bytecode
+D: It is only used in the development phase, not in production
+
+Answers:
+1. B, 2. B, 3. C, 4. C, 5. C, 6. C, 7. B, 8. B, 9. A, 10. C, 11. C, 12. C, 13. B, 14. B, 15. C, 16. C, 17. C, 18. C, 19. A, 20. B, 21. B, 22. C, 23. B, 24. C, 25. C

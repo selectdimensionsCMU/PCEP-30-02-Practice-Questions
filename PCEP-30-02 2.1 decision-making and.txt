@@ -1,0 +1,244 @@
+PCEP-30-02 2.1 decision-making and branching with the if instruction:
+
+1. Which keyword is used to start a conditional statement in Python?
+A: when
+B: if
+C: switch
+D: case
+
+2. What is the correct syntax for an if-else statement in Python?
+A: if condition:
+      code
+   else:
+      code
+B: if (condition) {
+      code
+   } else {
+      code
+   }
+C: if condition then
+      code
+   else
+      code
+   endif
+D: if condition:
+      code
+   elseif:
+      code
+
+3. How many branches can an if-elif-else statement have?
+A: Only 2
+B: Exactly 3
+C: At least 2, but no upper limit
+D: At most 3
+
+4. What happens if none of the conditions in an if-elif-else statement are true?
+A: The program crashes
+B: The else block is executed
+C: Nothing happens
+D: The first if block is executed by default
+
+5. Which of the following is NOT a valid comparison operator in Python?
+A: ==
+B: !=
+C: <>
+D: >=
+
+6. What is the output of the following code?
+```python
+x = 5
+if x > 0:
+    print("Positive")
+elif x < 0:
+    print("Negative")
+else:
+    print("Zero")
+```
+A: Positive
+B: Negative
+C: Zero
+D: No output
+
+7. How do you write a nested if statement in Python?
+A: By using curly braces {}
+B: By using the 'nested' keyword
+C: By indenting the inner if statement
+D: It's not possible to nest if statements in Python
+
+8. What is the purpose of the 'pass' statement in Python?
+A: To skip the rest of the code in a block
+B: To indicate an empty block of code
+C: To pass control to the next iteration of a loop
+D: To raise an exception
+
+9. Which logical operator is used to combine conditions in Python?
+A: && and ||
+B: AND and OR
+C: and and or
+D: & and |
+
+10. What will be the output of this code?
+```python
+a = 10
+b = 20
+if a > b:
+    print("a is greater")
+else:
+    print("b is greater or equal")
+```
+A: a is greater
+B: b is greater or equal
+C: No output
+D: Syntax error
+
+11. How can you write a one-line if-else statement in Python?
+A: if condition: statement1 else: statement2
+B: condition ? statement1 : statement2
+C: statement1 if condition else statement2
+D: (condition) ? (statement1) : (statement2)
+
+12. What is the correct way to check if a variable x is between 10 and 20 (inclusive)?
+A: if x >= 10 and x <= 20:
+B: if 10 <= x <= 20:
+C: if x in range(10, 21):
+D: All of the above
+
+13. What will be the output of this code?
+```python
+x = 5
+y = 10
+z = 15
+if x < y < z:
+    print("Y is between X and Z")
+else:
+    print("Y is not between X and Z")
+```
+A: Y is between X and Z
+B: Y is not between X and Z
+C: Syntax error
+D: No output
+
+14. Which of the following is a valid way to start an elif statement?
+A: elseif condition:
+B: else if condition:
+C: elif condition:
+D: elsif condition:
+
+15. What is the output of this code?
+```python
+x = True
+y = False
+if x or y:
+    print("At least one is True")
+else:
+    print("Both are False")
+```
+A: At least one is True
+B: Both are False
+C: Syntax error
+D: No output
+
+16. How can you check if a variable is None in Python?
+A: if variable == None:
+B: if variable is None:
+C: if Not variable:
+D: if variable.isNone():
+
+17. What will be the output of this code?
+```python
+x = 10
+if x > 5:
+    print("Greater than 5")
+if x > 8:
+    print("Greater than 8")
+if x > 15:
+    print("Greater than 15")
+```
+A: Greater than 5
+B: Greater than 8
+C: Greater than 5
+   Greater than 8
+D: Greater than 5
+   Greater than 8
+   Greater than 15
+
+18. Which of the following is NOT a valid way to write an if statement in Python?
+A: if (x > 0): print("Positive")
+B: if x > 0: print("Positive")
+C: if x > 0 then print("Positive")
+D: if x > 0:
+       print("Positive")
+
+19. What is the purpose of the 'not' operator in conditional statements?
+A: To combine conditions
+B: To negate a condition
+C: To compare equality
+D: To check for membership
+
+20. What will be the output of this code?
+```python
+x = 5
+if x == 5:
+    print("Five")
+elif x == 5:
+    print("Also Five")
+else:
+    print("Not Five")
+```
+A: Five
+B: Also Five
+C: Not Five
+D: Five
+   Also Five
+
+21. How can you check if a variable is either 5, 10, or 15?
+A: if x == 5 or 10 or 15:
+B: if x == 5 or x == 10 or x == 15:
+C: if x in (5, 10, 15):
+D: Both B and C
+
+22. What is the output of this code?
+```python
+x = 0
+if x:
+    print("Truthy")
+else:
+    print("Falsy")
+```
+A: Truthy
+B: Falsy
+C: 0
+D: No output
+
+23. Which of the following is a valid way to start an else statement?
+A: else:
+B: else():
+C: else {}:
+D: otherwise:
+
+24. What will be the output of this code?
+```python
+x = 10
+y = 20
+if x > y:
+    print("X is greater")
+elif x == y:
+    print("X and Y are equal")
+elif x < y:
+    print("Y is greater")
+else:
+    print("This won't be printed")
+```
+A: X is greater
+B: X and Y are equal
+C: Y is greater
+D: This won't be printed
+
+25. How can you write a conditional expression that assigns 10 to x if y is greater than 0, and 20 otherwise?
+A: x = 10 if y > 0 else 20
+B: x = y > 0 ? 10 : 20
+C: x = (y > 0) && 10 || 20
+D: if y > 0 then x = 10 else x = 20
+
+Answers:
+1. B, 2. A, 3. C, 4. B, 5. C, 6. A, 7. C, 8. B, 9. C, 10. B, 11. C, 12. D, 13. A, 14. C, 15. A, 16. B, 17. C, 18. C, 19. B, 20. A, 21. D, 22. B, 23. A, 24. C, 25. A
