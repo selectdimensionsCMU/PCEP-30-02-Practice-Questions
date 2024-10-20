@@ -6,18 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Practice Test</title>
     <style>
+        :root {
+            --primary-color: #2b582d;
+            --primary-hover-color: #00920a;
+            --secondary-color: #008CBA;
+            --danger-color: #f44336;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --code-background: #f4f4f494;
+            --code-border: #fff8f8;
+            --container-background: white;
+            --modal-background: #fefefe;
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .container {
             max-width: 800px;
             margin: auto;
-            background: white;
+            background: var(--container-background);
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -25,7 +40,7 @@
 
         h1,
         h2 {
-            color: #333;
+            color: var(--text-color);
         }
 
         #question {
@@ -35,7 +50,7 @@
         .option,
         .menu-item {
             margin-bottom: 10px;
-            background-color: #4CAF50;
+            background-color: var(--primary-color);
             border: none;
             color: white;
             padding: 10px 20px;
@@ -46,18 +61,19 @@
             font-size: 16px;
             cursor: pointer;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
         .option:hover,
         .menu-item:hover {
-            background-color: #45a049;
+            background-color: var(--primary-hover-color);
         }
 
         #submit,
         #next,
         #back-to-menu,
         #return-to-menu {
-            background-color: #008CBA;
+            background-color: var(--secondary-color);
             border: none;
             color: white;
             padding: 10px 20px;
@@ -68,10 +84,11 @@
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
         #return-to-menu {
-            background-color: #f44336;
+            background-color: var(--danger-color);
         }
 
         #result {
@@ -85,15 +102,80 @@
         }
 
         pre {
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            background-color: var(--code-background);
             padding: 10px;
+            border-radius: 5px;
             overflow-x: auto;
+            margin-bottom: 10px;
+            border: 1px solid var(--code-border);
         }
-
+        
         code {
             font-family: 'Courier New', Courier, monospace;
+            display: block;
+            width: 100%;
+        }
+
+        .option-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            background-color: var(--code-background);
+            border-radius: 5px;
+            padding: 5px;
+        }
+        
+        .option {
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .option-text {
+            flex-grow: 1;
+            font-size: 14px;
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 5px;
+        }
+
+        .option-text code {
+            white-space: pre-wrap;
+            word-break: break-word;
+            background-color: var(--code-background);
+            padding: 5px;
+            border-radius: 3px;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .option-letter {
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .option-letter:hover {
+            background-color: var(--primary-hover-color);
+        }
+
+        .option-container pre {
+            margin: 0;
+            flex-grow: 1;
         }
 
         #menu,
@@ -114,7 +196,7 @@
         }
 
         .modal-content {
-            background-color: #fefefe;
+            background-color: var(--modal-background);
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
@@ -136,25 +218,6 @@
             cursor: pointer;
         }
 
-        .menu-item {
-            margin-bottom: 10px;
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: left;
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .menu-item:hover {
-            background-color: #45a049;
-        }
-
         .menu-item-title {
             font-weight: bold;
             margin-bottom: 5px;
@@ -162,22 +225,71 @@
 
         .menu-item-description {
             font-size: 14px;
-            color: #e0e0e0;
+            color: #666;
         }
 
         .option.correct {
-            background-color: #4CAF50;
+            background-color: var(--primary-color);
         }
 
         .option.incorrect {
-            background-color: #f44336;
+            background-color: var(--danger-color);
         }
 
         #explanation {
             margin-top: 20px;
             padding: 10px;
-            background-color: #f0f0f0;
+            background-color: var(--code-background);
             border-radius: 5px;
+        }
+
+        #dark-mode-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+
+            .menu-item,
+            .option {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            #timer {
+                font-size: 14px;
+            }
+
+            #question,
+            #code,
+            #options,
+            #result {
+                font-size: 16px;
+            }
+
+            #error-message {
+                font-size: 14px;
+            }
+        }
+
+        body.dark-mode {
+            --background-color: #222;
+            --text-color: #f4f4f4;
+            --code-background: #333;
+            --code-border: #444;
+            --container-background: #333;
+            --modal-background: #333;
+        }
+
+        body.dark-mode .menu-item-description {
+            color: #ccc;
         }
     </style>
 </head>
@@ -214,6 +326,8 @@
         </div>
     </div>
 
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+
     <script>
         const menuElement = document.getElementById('menu');
         const menuItemsElement = document.getElementById('menu-items');
@@ -231,6 +345,18 @@
         const warningModal = document.getElementById('warningModal');
         const resumeButton = document.getElementById('resumeButton');
         const confirmReturnButton = document.getElementById('confirmReturnButton');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+        });
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark-mode');
+        }
 
         let currentQuestionIndex = 0;
         let currentFileIndex = 0;
@@ -254,158 +380,367 @@
             'PCEP-30-02 4.1 working with functio.txt',
             'PCEP-30-02 4.2 section, covering pa.txt',
             'PCEP-30-02 4.3 Python\'s Built-In Ex.txt',
-            'PCEP-30-02 4.4 - Basics of Python E.txt'
+            'PCEP-30-02 4.4 Basics of Python E.txt'
         ];
 
+        async function loadFile(index) {
+            if (index < 0 || index >= files.length) {
+                throw new Error('Invalid file index');
+            }
+
+            try {
+                console.log('Attempting to fetch file:', files[index]);
+                const response = await fetch(files[index], {
+                    method: 'GET',
+                    headers: {
+                        'Cache-Control': 'no-cache',
+                        'Pragma': 'no-cache'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const content = await response.text();
+                console.log('Raw content loaded:', content);
+
+                // Add more detailed checks here
+                if (content === undefined) {
+                    throw new Error('Content is undefined after fetch');
+                }
+
+                if (content === null) {
+                    throw new Error('Content is null after fetch');
+                }
+
+                if (typeof content !== 'string') {
+                    throw new Error(`Invalid content type: ${typeof content}`);
+                }
+
+                console.log('Content type:', typeof content);
+                console.log('Content length:', content.length);
+
+                // Only proceed if content is a non-empty string
+                if (content && typeof content === 'string') {
+                    const trimmedContent = content.trim();
+                    if (trimmedContent.length === 0) {
+                        throw new Error('File is empty (only whitespace)');
+                    }
+
+                    console.log("File content loaded successfully");
+
+                    const questions = await loadQuestions(trimmedContent);
+
+                    if (questions.length === 0) {
+                        throw new Error('No valid questions found in the file');
+                    }
+
+                    return questions;
+                } else {
+                    throw new Error('Invalid or empty content');
+                }
+            } catch (error) {
+                console.error('Error loading file:', error);
+                displayError(`Failed to load questions: ${error.message}`);
+                throw error;
+            }
+        }
+
         async function loadQuestions(content) {
+            console.log('Content received in loadQuestions:', content);
+            console.log('Content type in loadQuestions:', typeof content);
+            console.log('Content length in loadQuestions:', content.length);
+        
+            if (!content || typeof content !== 'string') {
+                console.error('Invalid content provided to loadQuestions');
+                return [];
+            }
+        
             const lines = content.split('\n');
             const questions = [];
             let currentQuestion = null;
-            let answerSection = false;
+            let currentSection = '';
             let inCodeBlock = false;
-
-            for (const line of lines) {
-                const trimmedLine = line.trim();
-                if (trimmedLine) {
-                    if (!answerSection) {
-                        if (/^\d+\./.test(trimmedLine)) {
-                            if (currentQuestion) {
-                                questions.push(currentQuestion);
-                            }
-                            currentQuestion = { question: trimmedLine, options: [], code: '', explanation: '' };
-                        } else if (trimmedLine.startsWith('```')) {
-                            inCodeBlock = !inCodeBlock;
-                        } else if (inCodeBlock) {
-                            currentQuestion.code += trimmedLine + '\n';
-                        } else if (/^[A-D]:/.test(trimmedLine)) {
-                            currentQuestion.options.push(trimmedLine);
-                        } else if (trimmedLine.startsWith('Answers:')) {
-                            answerSection = true;
-                        } else if (trimmedLine.startsWith('Explanation:')) {
-                            currentQuestion.explanation = trimmedLine.substring('Explanation:'.length).trim();
+            let explanationLines = [];
+        
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line) {
+                    if (line.startsWith('#SECTION:')) {
+                        currentSection = line.substring(9).trim();
+                    } else if (line.startsWith('==QUESTION')) {
+                        if (currentQuestion) {
+                            // Process the explanation before pushing the current question
+                            currentQuestion.explanation = explanationLines.join('\n').trim();
+                            questions.push(currentQuestion);
+                            explanationLines = []; // Reset explanation lines
                         }
-                    } else {
-                        // Process answers
-                        const answers = trimmedLine.split(',').map(a => a.trim());
-                        answers.forEach(answer => {
-                            const [num, ans] = answer.split('.');
-                            if (num && ans) {
-                                const index = parseInt(num.trim()) - 1;
-                                if (questions[index]) {
-                                    questions[index].correct = ans.trim();
-                                }
+                        currentQuestion = {
+                            section: currentSection,
+                            question: '',
+                            options: [],
+                            correct: '',
+                            explanation: ''
+                        };
+                    } else if (line.startsWith('[') && currentQuestion) {
+                        // Start a new option
+                        currentQuestion.options.push(line);
+                    } else if (currentQuestion && currentQuestion.options.length > 0 && !line.startsWith('CORRECT:') && !line.startsWith('EXPLANATION:')) {
+                        // Append to the last option if it's a continuation
+                        currentQuestion.options[currentQuestion.options.length - 1] += '\n' + line;
+                    } else if (line.startsWith('CORRECT:') && currentQuestion) {
+                        currentQuestion.correct = line.substring(8).trim();
+                    } else if (line.startsWith('EXPLANATION:') && currentQuestion) {
+                        // Start collecting explanation lines
+                        explanationLines = [line.substring(12).trim()];
+                    } else if (line.startsWith('```')) {
+                        inCodeBlock = !inCodeBlock;
+                        if (currentQuestion) {
+                            currentQuestion.question += line + '\n';
+                        }
+                    } else if (currentQuestion) {
+                        if (inCodeBlock || !line.startsWith('==QUESTION')) {
+                            if (explanationLines.length > 0) {
+                                // If we're collecting explanation lines, add to explanation
+                                explanationLines.push(line);
+                            } else {
+                                // Otherwise, add to question
+                                currentQuestion.question += line + '\n';
                             }
-                        });
+                        }
                     }
                 }
             }
-
+        
             if (currentQuestion) {
+                // Process the explanation for the last question
+                currentQuestion.explanation = explanationLines.join('\n').trim();
                 questions.push(currentQuestion);
             }
-
+        
+            // Clean up questions
+            questions.forEach(q => {
+                q.question = q.question.trim();
+                q.options = q.options.map(opt => opt.trim());
+            });
+        
+            console.log('Processed questions:', questions);
             return questions;
         }
 
         function displayQuestion() {
-            if (!questions || questions.length === 0 || currentQuestionIndex >= questions.length) {
-                console.error('No questions available or invalid question index');
-                alert('An error occurred while displaying the question. Returning to menu.');
-                showMenu();
-                return;
+            try {
+                if (!questions || currentQuestionIndex < 0 || currentQuestionIndex >= questions.length) {
+                    throw new Error('Invalid question index or questions not loaded');
+                }
+        
+                const question = questions[currentQuestionIndex];
+                if (!question || !question.question) {
+                    throw new Error('Invalid question data');
+                }
+        
+                // Clear previous content
+                questionElement.innerHTML = '';
+                optionsElement.innerHTML = '';
+                resultElement.textContent = '';
+                document.getElementById('explanation').style.display = 'none';
+        
+                // Display section
+                const sectionElement = document.createElement('h2');
+                sectionElement.textContent = question.section;
+                questionElement.appendChild(sectionElement);
+        
+                // Display question text
+                displayQuestionText(question.question);
+        
+                // Display options
+                displayOptions(question.options);
+        
+                // Update button visibility
+                submitButton.style.display = 'inline-block';
+                nextButton.style.display = 'none';
+                backToMenuButton.style.display = 'none';
+        
+                updateProgress();
+        
+                // Scroll to top of question for mobile users
+                window.scrollTo(0, 0);
+        
+            } catch (error) {
+                console.error('Error displaying question:', error);
+                displayError(`Failed to display question: ${error.message}`);
             }
+        }
         
-            const question = questions[currentQuestionIndex];
-            questionElement.textContent = question.question;
+        function displayQuestionText(questionText) {
+            const parts = questionText.split('```');
+            
+            parts.forEach((part, index) => {
+                if (index % 2 === 0) {
+                    // This is regular text
+                    const textElement = document.createElement('p');
+                    textElement.textContent = part.trim();
+                    questionElement.appendChild(textElement);
+                } else {
+                    // This is a code block
+                    const preElement = document.createElement('pre');
+                    const codeElement = document.createElement('code');
+                    codeElement.className = 'language-python'; // Assuming it's always Python
+                    codeElement.textContent = part.trim();
+                    preElement.appendChild(codeElement);
+                    questionElement.appendChild(preElement);
         
-            // Handle code display
-            if (question.code) {
-                codeElement.innerHTML = `<pre><code>${question.code}</code></pre>`;
-                codeElement.style.display = 'block';
-            } else {
-                codeElement.innerHTML = '';
-                codeElement.style.display = 'none';
-            }
-        
-            // Display options
-            optionsElement.innerHTML = '';
-            (question.options || question.choices).forEach((option, index) => {
-                const button = document.createElement('button');
-                button.textContent = option;
-                button.classList.add('option');
-                button.addEventListener('click', () => selectOption(index));
-                optionsElement.appendChild(button);
+                    // Apply syntax highlighting if using a library like highlight.js
+                    if (typeof hljs !== 'undefined') {
+                        hljs.highlightElement(codeElement);
+                    }
+                }
             });
+        }
         
-            // Update UI elements
-            submitButton.style.display = 'inline-block';
-            nextButton.style.display = 'none';
-            backToMenuButton.style.display = 'none';
-            resultElement.textContent = '';
-            document.getElementById('explanation').style.display = 'none';
+        function displayOptions(options) {
+            options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.classList.add('option-container');
         
-            updateProgress();
+                const button = document.createElement('button');
+                button.textContent = option.trim().substring(1, 2); // Extract the letter (A, B, C, D)
+                button.classList.add('option-letter');
+                button.addEventListener('click', () => selectOption(index));
+                optionDiv.appendChild(button);
+        
+                const optionText = document.createElement('pre');
+                optionText.classList.add('option-text');
+                optionText.textContent = option.trim().substring(3).trim(); // Remove the letter and bracket
+                optionDiv.appendChild(optionText);
+        
+                optionsElement.appendChild(optionDiv);
+            });
         }
 
-        function submitAnswer() {
-            const selectedOption = optionsElement.querySelector('.option[style*="background-color"]');
-            if (!selectedOption) {
-                alert('Please select an answer');
-                return;
+        function displayError(message) {
+            const errorElement = document.getElementById('error-message') || document.createElement('div');
+            errorElement.id = 'error-message';
+            errorElement.textContent = message;
+            errorElement.style.cssText = 'color: red; padding: 10px; margin-bottom: 10px;';
+            questionElement.parentNode.insertBefore(errorElement, questionElement);
+        }
+        
+        function updateProgress() {
+            const progressElement = document.getElementById('progress');
+            if (progressElement && questions) {
+                progressElement.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
             }
+        }
         
-            const userAnswer = selectedOption.textContent.split(':')[0].trim();
-            const correctAnswer = questions[currentQuestionIndex].correctAnswer;
-            const isCorrect = userAnswer === correctAnswer;
+        async function submitAnswer() {
+            try {
+                const selectedOption = optionsElement.querySelector('.option-container.selected');
+                if (!selectedOption) {
+                    displayError('Please select an answer');
+                    return;
+                }
         
-            if (isCorrect) {
-                userScore++;
-                selectedOption.classList.add('correct');
-            } else {
-                selectedOption.classList.add('incorrect');
-                const correctOptionIndex = ['A', 'B', 'C', 'D'].indexOf(correctAnswer);
-                if (correctOptionIndex !== -1) {
-                    optionsElement.querySelector(`.option:nth-child(${correctOptionIndex + 1})`).classList.add('correct');
+                const currentQuestion = questions[currentQuestionIndex];
+                if (!currentQuestion) {
+                    throw new Error('Current question not found');
+                }
+        
+                const userAnswer = selectedOption.querySelector('.option-letter').textContent;
+                const correctAnswer = currentQuestion.correct;
+        
+                if (!correctAnswer) {
+                    throw new Error('Correct answer not defined for this question');
+                }
+        
+                const isCorrect = userAnswer === correctAnswer;
+        
+                // Update score
+                if (isCorrect) {
+                    userScore++;
+                }
+        
+                // Update UI
+                updateUIAfterSubmission(selectedOption, isCorrect, correctAnswer);
+        
+                // Display explanation
+                displayExplanation(currentQuestion.explanation);
+        
+                // Stop timer
+                stopTimer();
+        
+                // Save progress to server
+                await saveResults(currentFileIndex, userScore, questions.length);
+        
+                // Disable all option buttons
+                disableOptionButtons();
+        
+            } catch (error) {
+                console.error('Error submitting answer:', error);
+                displayError(error.message);
+            }
+        }
+        
+        function updateUIAfterSubmission(selectedOption, isCorrect, correctAnswer) {
+            selectedOption.classList.add(isCorrect ? 'correct' : 'incorrect');
+            if (!isCorrect) {
+                const correctOptionIndex = correctAnswer.charCodeAt(0) - 65;
+                const correctOption = optionsElement.children[correctOptionIndex];
+                if (correctOption) {
+                    correctOption.classList.add('correct');
                 }
             }
         
-            // Disable all options after submission
-            optionsElement.querySelectorAll('.option').forEach(option => {
-                option.disabled = true;
-            });
-        
+            resultElement.textContent = isCorrect ? 'Correct!' : `Incorrect. The correct answer is ${correctAnswer}.`;
             submitButton.style.display = 'none';
             nextButton.style.display = 'inline-block';
-            backToMenuButton.style.display = 'inline-block';
+        }
         
-            // Show explanation if available
+        function displayExplanation(explanation) {
             const explanationElement = document.getElementById('explanation');
-            if (questions[currentQuestionIndex].explanation) {
-                explanationElement.textContent = questions[currentQuestionIndex].explanation;
-                explanationElement.style.display = 'block';
-            } else {
-                explanationElement.style.display = 'none';
-            }
+            explanationElement.textContent = explanation || 'No explanation provided.';
+            explanationElement.style.display = 'block';
+        }
         
-            updateProgress();
+        function disableOptionButtons() {
+            Array.from(optionsElement.querySelectorAll('.option-letter')).forEach(button => button.disabled = true);
         }
 
         function selectOption(index) {
-            optionsElement.querySelectorAll('.option').forEach((option, i) => {
-                if (i === index) {
-                    option.style.backgroundColor = '#e0e0e0';
-                } else {
-                    option.style.backgroundColor = '';
+            try {
+                const options = optionsElement.getElementsByClassName('option-container');
+                if (index < 0 || index >= options.length) {
+                    throw new Error('Invalid option index');
                 }
-            });
+                for (let i = 0; i < options.length; i++) {
+                    const optionContainer = options[i];
+                    const button = optionContainer.querySelector('.option-letter');
+                    if (button) {
+                        button.style.backgroundColor = i === index ? '#45a049' : '';
+                        button.setAttribute('aria-selected', i === index ? 'true' : 'false');
+                    }
+                    // Add a selected class to the container instead of changing button style
+                    optionContainer.classList.toggle('selected', i === index);
+                }
+            } catch (error) {
+                console.error('Error selecting option:', error);
+                displayError(error.message);
+            }
         }
 
-        function nextQuestion() {
-            currentQuestionIndex++;
-            if (currentQuestionIndex >= questions.length) {
-                finishQuiz();
-            } else {
-                displayQuestion();
+        async function nextQuestion() {
+            try {
+                currentQuestionIndex++;
+                if (currentQuestionIndex >= questions.length) {
+                    await finishQuiz();
+                } else {
+                    await displayQuestion();
+                    startTimer();
+                }
+            } catch (error) {
+                console.error('Error moving to next question:', error);
+                displayError('Failed to load next question. Please try again.');
             }
         }
 
@@ -414,7 +749,7 @@
             progressElement.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions} | Score: ${userScore}`;
         }
 
-        function saveResults(sectionIndex, score, totalQuestions) {
+        async function saveResults(sectionIndex, score, totalQuestions) {
             const result = {
                 section: sectionIndex,
                 score: score,
@@ -422,192 +757,151 @@
                 timestamp: new Date().toISOString()
             };
 
-            return fetch('/save-results', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(result),
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Result saved:', data);
-                    return data;
-                })
-                .catch((error) => {
-                    console.error('Error saving result:', error);
-                    throw error;
+            try {
+                const response = await fetch('/save-results', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(result),
                 });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('Result saved:', data);
+                return data;
+            } catch (error) {
+                console.error('Error saving result:', error);
+                displayError('Failed to save results. Your progress may not be recorded.');
+                throw error;
+            }
         }
 
-        function finishQuiz() {
-            questionElement.textContent = 'Quiz completed!';
-            codeElement.innerHTML = '';
-            optionsElement.innerHTML = '';
-            resultElement.textContent = `Final Score: ${userScore} out of ${questions.length}`;
-            nextButton.style.display = 'none';
-            backToMenuButton.style.display = 'inline-block';
-            returnToMenuButton.style.display = 'none';
-            progressElement.textContent = '';
-            clearInterval(timerInterval);
+        async function finishQuiz() {
+            try {
+                questionElement.textContent = 'Quiz completed!';
+                codeElement.innerHTML = '';
+                optionsElement.innerHTML = '';
+                resultElement.textContent = `Final Score: ${userScore} out of ${questions.length}`;
+                nextButton.style.display = 'none';
+                backToMenuButton.style.display = 'inline-block';
+                returnToMenuButton.style.display = 'none';
+                progressElement.textContent = '';
+                stopTimer();
 
-            // Save results
-            saveResults(currentFileIndex, userScore, questions.length);
+                await saveResults(currentFileIndex, userScore, questions.length);
+            } catch (error) {
+                console.error('Error finishing quiz:', error);
+                displayError('An error occurred while finishing the quiz. Your results may not be saved.');
+            }
         }
 
-        function getResults() {
-            return fetch('/get-results')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .catch(error => {
-                    console.error('Error fetching results:', error);
-                    return [];
-                });
+        async function getResults() {
+            try {
+                const response = await fetch('/get-results');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching results:', error);
+                displayError('Failed to fetch previous results. Please try again later.');
+                return [];
+            }
         }
 
         async function showMenu() {
             menuElement.style.display = 'block';
             quizElement.style.display = 'none';
             menuItemsElement.innerHTML = '';
-
+        
             try {
                 const [descriptions, results] = await Promise.all([
-                    Promise.all(files.map(async (file, index) => {
-                        const response = await fetch(file);
-                        const content = await response.text();
-                        const firstLine = content.split('\n')[0].trim();
-                        return { index, description: firstLine };
-                    })),
+                    getFileDescriptions(),
                     getResults()
                 ]);
-
-                descriptions.forEach(({ index, description }) => {
-                    const button = document.createElement('button');
-                    button.classList.add('menu-item');
-
-                    const sectionResult = results
-                        .filter(r => r.section === index)
-                        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
-
-                    let resultText = '';
-                    if (sectionResult) {
-                        resultText = `Last score: ${sectionResult.score}/${sectionResult.total}`;
-                    }
-
-                    button.innerHTML = `
-                        <div class="menu-item-title">Section ${index + 1}</div>
-                        <div class="menu-item-description">${description}</div>
-                        <div class="menu-item-result">${resultText}</div>
-                    `;
-                    button.addEventListener('click', () => startQuiz(index));
-                    menuItemsElement.appendChild(button);
+        
+                descriptions.forEach((description, index) => {
+                    const menuItem = createMenuItem(description, index, results);
+                    menuItemsElement.appendChild(menuItem);
                 });
             } catch (error) {
                 console.error('Error loading menu:', error);
                 menuItemsElement.innerHTML = '<p>Error loading menu. Please try again later.</p>';
             }
         }
-
-        async function loadFile(fileIndex) {
-            try {
-                const response = await fetch(files[fileIndex]);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+        
+        async function getFileDescriptions() {
+            return Promise.all(files.map(async (file, index) => {
+                const response = await fetch(file);
                 const content = await response.text();
-                console.log('File content:', content); // Debug log
+                const firstLine = content.split('\n')[0].trim();
+                return { index, description: firstLine };
+            }));
+        }
         
-                const lines = content.split('\n').filter(line => line.trim() !== '');
-                console.log('Filtered lines:', lines); // Debug log
+        function createMenuItem(description, index, results) {
+            const button = document.createElement('button');
+            button.classList.add('menu-item');
         
-                if (lines.length === 0) {
-                    throw new Error('File is empty or contains only whitespace');
+            const sectionResult = getLatestSectionResult(results, index);
+            const resultText = sectionResult ? `Last score: ${sectionResult.score}/${sectionResult.total}` : '';
+        
+            button.innerHTML = `
+                <div class="menu-item-title">Section ${index + 1}</div>
+                <div class="menu-item-description">${description.description}</div>
+                <div class="menu-item-result">${resultText}</div>
+            `;
+            button.addEventListener('click', () => startQuiz(index));
+            return button;
+        }
+        
+        function getLatestSectionResult(results, sectionIndex) {
+            return results
+                .filter(r => r.section === sectionIndex)
+                .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))[0];
+        }
+
+        async function startQuiz(fileIndex) {
+            try {
+                currentFileIndex = fileIndex;
+                currentQuestionIndex = 0;
+                userScore = 0;
+                const loadedQuestions = await loadFile(fileIndex);
+                console.log('Loaded questions:', loadedQuestions);
+                if (!Array.isArray(loadedQuestions) || loadedQuestions.length === 0) {
+                    throw new Error('No valid questions loaded');
                 }
-        
-                // Extract the description (first line)
-                const description = lines[0].trim();
-        
-                // Parse questions
-                const questions = [];
-                let currentQuestion = null;
-        
-                for (let i = 1; i < lines.length; i++) {
-                    const line = lines[i].trim();
-                    if (line.match(/^\d+\./)) {
-                        // This is a new question
-                        if (currentQuestion) {
-                            questions.push(currentQuestion);
-                        }
-                        currentQuestion = {
-                            question: line,
-                            choices: [],
-                            correctAnswer: ''
-                        };
-                    } else if (line.match(/^[A-D]:/)) {
-                        // This is an answer choice
-                        currentQuestion.choices.push(line);
-                    } else if (line.startsWith('Answers:')) {
-                        // This is the answer key
-                        const answers = line.split(':')[1].trim().split(', ');
-                        for (let j = 0; j < answers.length; j++) {
-                            questions[j].correctAnswer = answers[j];
-                        }
-                        break;
-                    }
-                }
-        
-                if (currentQuestion) {
-                    questions.push(currentQuestion);
-                }
-        
-                console.log('Parsed questions:', questions); // Debug log
-        
-                return questions;
+                questions = loadedQuestions;
+                menuElement.style.display = 'none';
+                quizElement.style.display = 'block';
+                await displayQuestion();
+                startTimer();
             } catch (error) {
-                console.error('Error loading file:', error);
-                return [];
+                console.error('Error starting quiz:', error);
+                displayError('Failed to start the quiz. Please try again.');
             }
         }
 
-        function startQuiz(fileIndex) {
-            currentFileIndex = fileIndex;
-            currentQuestionIndex = 0;
-            userScore = 0;
-            loadFile(fileIndex).then(loadedQuestions => {
-                questions = loadedQuestions;
-                if (questions.length === 0) {
-                    alert('No questions were loaded. Please try again.');
-                    showMenu();
-                } else {
-                    menuElement.style.display = 'none';
-                    quizElement.style.display = 'block';
-                    displayQuestion();
-                    startTimer();
-                }
-            });
-        }
-
         function startTimer() {
-            clearInterval(timerInterval);
+            stopTimer();
             timeLeft = 15 * 60; // 15 minutes in seconds
             updateTimerDisplay();
             timerInterval = setInterval(() => {
                 timeLeft--;
                 updateTimerDisplay();
                 if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
+                    stopTimer();
                     finishQuiz();
                 }
             }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
         }
 
         function updateTimerDisplay() {
@@ -624,15 +918,26 @@
             warningModal.style.display = 'none';
         }
 
+        function displayError(message) {
+            const errorElement = document.getElementById('error-message') || document.createElement('div');
+            errorElement.id = 'error-message';
+            errorElement.textContent = message;
+            errorElement.style.color = 'red';
+            errorElement.style.padding = '10px';
+            errorElement.style.marginBottom = '10px';
+            document.body.insertBefore(errorElement, document.body.firstChild);
+        }
+
+        // Event Listeners
         submitButton.addEventListener('click', submitAnswer);
         nextButton.addEventListener('click', nextQuestion);
         backToMenuButton.addEventListener('click', showMenu);
         returnToMenuButton.addEventListener('click', showWarningModal);
         resumeButton.addEventListener('click', hideWarningModal);
-        confirmReturnButton.addEventListener('click', () => {
+        confirmReturnButton.addEventListener('click', async () => {
             hideWarningModal();
-            clearInterval(timerInterval);
-            showMenu();
+            stopTimer();
+            await showMenu();
         });
 
         // Start by showing the menu
