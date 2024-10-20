@@ -1,197 +1,269 @@
-PCEP-30-02 3.4 working with strings in Python, including constructing strings, indexing, slicing, immutability, escaping, quotes and apostrophes inside strings, multi-line strings, and basic string functions and methods:
+#SECTION: PCEP-30-02 3.4 Working with Strings in Python
 
-1. Which of the following is a valid way to create a string in Python?
-   A) str = 'Hello'
-   B) str = "Hello"
-   C) str = '''Hello'''
-   D) All of the above
+==QUESTION 1==
+Which of the following is a valid way to create a string in Python?
+[A] str = 'Hello'
+[B] str = "Hello"
+[C] str = '''Hello'''
+[D] All of the above
+CORRECT: D
+EXPLANATION: In Python, strings can be created using single quotes, double quotes, or triple quotes. All of these methods are valid and equivalent.
 
-2. What is the output of the following code?
-   ```python
-   s = "Python"
-   print(s[1])
-   ```
-   A) P
-   B) y
-   C) t
-   D) h
+==QUESTION 2==
+What is the output of the following code?
+```python
+s = "Python"
+print(s[1])
+```
+[A] P
+[B] y
+[C] t
+[D] h
+CORRECT: B
+EXPLANATION: String indexing in Python starts at 0. So s[1] refers to the second character of the string, which is 'y'.
 
-3. What is string slicing?
-   A) Removing characters from a string
-   B) Adding characters to a string
-   C) Extracting a portion of a string
-   D) Replacing characters in a string
+==QUESTION 3==
+What is string slicing?
+[A] Removing characters from a string
+[B] Adding characters to a string
+[C] Extracting a portion of a string
+[D] Replacing characters in a string
+CORRECT: C
+EXPLANATION: String slicing is a way to extract a portion of a string by specifying a range of indices.
 
-4. Which of the following is true about strings in Python?
-   A) Strings are mutable
-   B) Strings are immutable
-   C) Strings can be changed in-place
-   D) None of the above
+==QUESTION 4==
+Which of the following is true about strings in Python?
+[A] Strings are mutable
+[B] Strings are immutable
+[C] Strings can be changed in-place
+[D] None of the above
+CORRECT: B
+EXPLANATION: Strings in Python are immutable, meaning once a string is created, it cannot be changed.
 
-5. How do you escape a single quote in a string that's enclosed in single quotes?
-   A) \'
-   B) "'"
-   C) \\'
-   D) Both A and B
+==QUESTION 5==
+How do you escape a single quote in a string that's enclosed in single quotes?
+[A] \'
+[B] "'"
+[C] \\'
+[D] Both A and B
+CORRECT: D
+EXPLANATION: You can escape a single quote using a backslash (\') or by enclosing it in double quotes ("'"). Both methods work.
 
-6. What is the output of this code?
-   ```python
-   print("He said, \"Hello!\"")
-   ```
-   A) He said, "Hello!"
-   B) He said, \"Hello!\"
-   C) "He said, "Hello!""
-   D) SyntaxError
+==QUESTION 6==
+What is the output of this code?
+```python
+print("He said, \"Hello!\"")
+```
+[A] He said, "Hello!"
+[B] He said, \"Hello!\"
+[C] "He said, "Hello!""
+[D] SyntaxError
+CORRECT: A
+EXPLANATION: The backslashes are used to escape the double quotes, allowing them to be printed as part of the string.
 
-7. How can you create a multi-line string?
-   A) Using triple quotes (''' or """)
-   B) Using \n in a regular string
-   C) Using the + operator to concatenate strings
-   D) All of the above
+==QUESTION 7==
+How can you create a multi-line string?
+[A] Using triple quotes (''' or """)
+[B] Using \n in a regular string
+[C] Using the + operator to concatenate strings
+[D] All of the above
+CORRECT: D
+EXPLANATION: Multi-line strings can be created using triple quotes, newline characters (\n), or by concatenating multiple strings.
 
-8. What is the output of this code?
-   ```python
-   s = "Hello\nWorld"
-   print(len(s))
-   ```
-   A) 10
-   B) 11
-   C) 12
-   D) Error
+==QUESTION 8==
+What is the output of this code?
+```python
+s = "Hello\nWorld"
+print(len(s))
+```
+[A] 10
+[B] 11
+[C] 12
+[D] Error
+CORRECT: B
+EXPLANATION: The string contains 10 visible characters plus one newline character (\n), totaling 11 characters.
 
-9. Which method converts a string to uppercase?
-   A) s.upper()
-   B) s.capitalize()
-   C) s.top()
-   D) s.uppercase()
+==QUESTION 9==
+Which method converts a string to uppercase?
+[A] s.upper()
+[B] s.capitalize()
+[C] s.top()
+[D] s.uppercase()
+CORRECT: A
+EXPLANATION: The upper() method is used to convert a string to uppercase in Python.
 
-10. What is the output of this code?
-    ```python
-    s = "  Hello, World!  "
-    print(s.strip())
-    ```
-    A) "Hello, World!"
-    B) "Hello,World!"
-    C) "  Hello, World!  "
-    D) "Hello, World!  "
+==QUESTION 10==
+What is the output of this code?
+```python
+s = "  Hello, World!  "
+print(s.strip())
+```
+[A] "Hello, World!"
+[B] "Hello,World!"
+[C] "  Hello, World!  "
+[D] "Hello, World!  "
+CORRECT: A
+EXPLANATION: The strip() method removes leading and trailing whitespace from a string.
 
-11. How do you check if a string starts with a specific substring?
-    A) s.startswith("sub")
-    B) s.begins("sub")
-    C) s.start("sub")
-    D) "sub" in s[0]
+==QUESTION 11==
+How do you check if a string starts with a specific substring?
+[A] s.startswith("sub")
+[B] s.begins("sub")
+[C] s.start("sub")
+[D] "sub" in s[0]
+CORRECT: A
+EXPLANATION: The startswith() method is used to check if a string starts with a specific substring.
 
-12. What is the output of this code?
-    ```python
-    s = "Python"
-    print(s[-2])
-    ```
-    A) P
-    B) n
-    C) o
-    D) t
+==QUESTION 12==
+What is the output of this code?
+```python
+s = "Python"
+print(s[-2])
+```
+[A] P
+[B] n
+[C] o
+[D] t
+CORRECT: C
+EXPLANATION: Negative indexing in Python counts from the end of the string. s[-2] refers to the second-to-last character, which is 'o'.
 
-13. Which method splits a string into a list of substrings?
-    A) s.split()
-    B) s.divide()
-    C) s.separate()
-    D) s.break()
+==QUESTION 13==
+Which method splits a string into a list of substrings?
+[A] s.split()
+[B] s.divide()
+[C] s.separate()
+[D] s.break()
+CORRECT: A
+EXPLANATION: The split() method is used to split a string into a list of substrings based on a delimiter.
 
-14. What is the output of this code?
-    ```python
-    s = "Hello" + " " + "World"
-    print(s)
-    ```
-    A) HelloWorld
-    B) Hello World
-    C) "Hello World"
-    D) Error
+==QUESTION 14==
+What is the output of this code?
+```python
+s = "Hello" + " " + "World"
+print(s)
+```
+[A] HelloWorld
+[B] Hello World
+[C] "Hello World"
+[D] Error
+CORRECT: B
+EXPLANATION: The + operator concatenates strings. The result is "Hello World" with a space between the words.
 
-15. How can you find the index of a substring in a string?
-    A) s.find("sub")
-    B) s.index("sub")
-    C) s.search("sub")
-    D) Both A and B
+==QUESTION 15==
+How can you find the index of a substring in a string?
+[A] s.find("sub")
+[B] s.index("sub")
+[C] s.search("sub")
+[D] Both A and B
+CORRECT: D
+EXPLANATION: Both find() and index() methods can be used to find the index of a substring in a string.
 
-16. What is the output of this code?
-    ```python
-    s = "Python"
-    print(s[1:4])
-    ```
-    A) Pyt
-    B) yth
-    C) ytho
-    D) ython
+==QUESTION 16==
+What is the output of this code?
+```python
+s = "Python"
+print(s[1:4])
+```
+[A] Pyt
+[B] yth
+[C] ytho
+[D] ython
+CORRECT: B
+EXPLANATION: String slicing s[1:4] includes characters from index 1 to 3 (4 is exclusive), which are 'yth'.
 
-17. Which method replaces occurrences of a substring in a string?
-    A) s.replace("old", "new")
-    B) s.swap("old", "new")
-    C) s.change("old", "new")
-    D) s.substitute("old", "new")
+==QUESTION 17==
+Which method replaces occurrences of a substring in a string?
+[A] s.replace("old", "new")
+[B] s.swap("old", "new")
+[C] s.change("old", "new")
+[D] s.substitute("old", "new")
+CORRECT: A
+EXPLANATION: The replace() method is used to replace occurrences of a substring in a string.
 
-18. What is the output of this code?
-    ```python
-    s = "Hello"
-    print(s * 3)
-    ```
-    A) HelloHelloHello
-    B) Hello3
-    C) Error
-    D) None of the above
+==QUESTION 18==
+What is the output of this code?
+```python
+s = "Hello"
+print(s * 3)
+```
+[A] HelloHelloHello
+[B] Hello3
+[C] Error
+[D] None of the above
+CORRECT: A
+EXPLANATION: The * operator with a string repeats the string that many times.
 
-19. How do you convert a string to lowercase?
-    A) s.lower()
-    B) s.lowercase()
-    C) s.down()
-    D) s.tolower()
+==QUESTION 19==
+How do you convert a string to lowercase?
+[A] s.lower()
+[B] s.lowercase()
+[C] s.down()
+[D] s.tolower()
+CORRECT: A
+EXPLANATION: The lower() method is used to convert a string to lowercase in Python.
 
-20. What is the output of this code?
-    ```python
-    s = "Python Programming"
-    print(s.count("P"))
-    ```
-    A) 1
-    B) 2
-    C) 3
-    D) 0
+==QUESTION 20==
+What is the output of this code?
+```python
+s = "Python Programming"
+print(s.count("P"))
+```
+[A] 1
+[B] 2
+[C] 3
+[D] 0
+CORRECT: B
+EXPLANATION: The count() method returns the number of occurrences of a substring in the string. There are two "P"s in "Python Programming".
 
-21. Which of the following is true about string formatting in Python?
-    A) It can be done using the % operator
-    B) It can be done using the .format() method
-    C) It can be done using f-strings (in Python 3.6+)
-    D) All of the above
+==QUESTION 21==
+Which of the following is true about string formatting in Python?
+[A] It can be done using the % operator
+[B] It can be done using the .format() method
+[C] It can be done using f-strings (in Python 3.6+)
+[D] All of the above
+CORRECT: D
+EXPLANATION: Python supports multiple ways of string formatting, including the % operator, .format() method, and f-strings in newer versions.
 
-22. What is the output of this code?
-    ```python
-    s = "Hello\tWorld"
-    print(len(s))
-    ```
-    A) 10
-    B) 11
-    C) 12
-    D) Error
+==QUESTION 22==
+What is the output of this code?
+```python
+s = "Hello\tWorld"
+print(len(s))
+```
+[A] 10
+[B] 11
+[C] 12
+[D] Error
+CORRECT: B
+EXPLANATION: The string contains 10 visible characters plus one tab character (\t), totaling 11 characters.
 
-23. How can you check if a string contains only digits?
-    A) s.isdigit()
-    B) s.isnumeric()
-    C) s.isdecimal()
-    D) All of the above
+==QUESTION 23==
+How can you check if a string contains only digits?
+[A] s.isdigit()
+[B] s.isnumeric()
+[C] s.isdecimal()
+[D] All of the above
+CORRECT: D
+EXPLANATION: All these methods (isdigit(), isnumeric(), and isdecimal()) can be used to check if a string contains only digits, with slight differences in what they consider as digits.
 
-24. What is the output of this code?
-    ```python
-    s = "Python"
-    print(s[::-1])
-    ```
-    A) Python
-    B) nohtyP
-    C) Pytho
-    D) Error
+==QUESTION 24==
+What is the output of this code?
+```python
+s = "Python"
+print(s[::-1])
+```
+[A] Python
+[B] nohtyP
+[C] Pytho
+[D] Error
+CORRECT: B
+EXPLANATION: The slice s[::-1] reverses the string, resulting in "nohtyP".
 
-25. Which method joins elements of an iterable into a string?
-    A) "".join(iterable)
-    B) string.concat(iterable)
-    C) string.merge(iterable)
-    D) "".combine(iterable)
-
-Answers:
-1. D, 2. B, 3. C, 4. B, 5. D, 6. A, 7. D, 8. B, 9. A, 10. A, 11. A, 12. C, 13. A, 14. B, 15. D, 16. B, 17. A, 18. A, 19. A, 20. B, 21. D, 22. B, 23. D, 24. B, 25. A
+==QUESTION 25==
+Which method joins elements of an iterable into a string?
+[A] "".join(iterable)
+[B] string.concat(iterable)
+[C] string.merge(iterable)
+[D] "".combine(iterable)
+CORRECT: A
+EXPLANATION: The join() method is used to join elements of an iterable into a string, with the string it's called on as the separator.
