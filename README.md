@@ -41,10 +41,7 @@ Python Practice Questions is an interactive web-based study tool designed to hel
    - Navigate through questions using the provided buttons.
    - View your results and track your progress over time.
 
-5. **Viewing Saved Results**:
-   - Access `http://localhost:3000/results.html` to view your saved quiz results.
-
-6. **Customization**:
+5. **Customization**:
   - Open the relevant text file (e.g., "PCEP-30-02 1.1 fundamental terms an.txt") in a text editor.
   - Modify the questions, answers, and explanations as needed.
   - Save the file.
