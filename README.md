@@ -25,14 +25,14 @@ Python Practice Questions is an interactive web-based study tool designed to hel
    - Basic familiarity with command-line operations
 
 2. **Setup Steps**:
-   a. Create a project directory and place all provided files (HTML, JavaScript, JSON) in it.
-   b. Open a terminal and navigate to the project directory.
-   c. Run `npm install express cors` to install necessary dependencies.
-   d. The provided `Express.js` contains the server code.
+   - a. Create a project directory and place all provided files (HTML, JavaScript, JSON) in it.
+   - b. Open a terminal and navigate to the project directory.
+   - c. Run `npm install express cors` to install necessary dependencies.
+   - d. The provided `Express.js` contains the server code.
 
 3. **Running the Application**:
-   a. In the terminal, run `node Express.js` to start the server.
-   b. Open a web browser and go to `http://localhost:3000/practice_test.html`.
+   - a. In the terminal, run `node Express.js` to start the server.
+   - b. Open a web browser and go to `http://localhost:3000/practice_test.html`.
 
 4. **Using the Application**:
    - Select a topic or choose a mixed quiz.
